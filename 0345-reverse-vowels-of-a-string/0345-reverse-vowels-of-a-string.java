@@ -6,10 +6,10 @@ class Solution {
         char[] s = str.toCharArray();
 
         while(i<j) {
-            while(i<j && !ls.contains(s[i])) {
+            if(!ls.contains(s[i])) {
                 i++;
             }
-            while(i<j && !ls.contains(s[j])) {
+            if(!ls.contains(s[j])) {
                 j--;
             }
 
@@ -17,9 +17,10 @@ class Solution {
                 char temp = s[i];
                 s[i] = s[j];
                 s[j] = temp;
+                i++;
+                j--;
             }
-            i++;
-            j--;
+
         }
 
         return String.valueOf(s);
