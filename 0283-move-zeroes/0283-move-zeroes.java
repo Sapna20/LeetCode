@@ -7,7 +7,7 @@ class Solution {
             while( z<nums.length && nums[z] != 0) {
                 z++;
             }
-            n = z+1;
+            n = n > z ? n : z+1;
 
             while( n < nums.length && nums[n] == 0) {
                 n++;
