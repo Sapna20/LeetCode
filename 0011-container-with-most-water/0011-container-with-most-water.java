@@ -1,21 +1,16 @@
 class Solution {
     public int maxArea(int[] height) {
-        int maxArea = 0, l = 0, r = height.length-1;
-
-        //two pointer at leftmost and rightmost end
-        while(l<r) {
-            int currArea = (r-l)*Math.min(height[l], height[r]);
-            if(maxArea < currArea) {
-                maxArea = currArea;
-            }
-            //move pointer that is at lower height because calulating area at same height again will give less area
-            if(height[l] < height[r]) {
-                l++;
+        int L = 0;
+        int R = height.length-1;
+        int ans = 0;
+        while(L<R) {
+            ans = Math.max(ans, Math.min(height[L], height[R])*(R-L));
+            if(height[L] < height[R]) {
+                L++;
             } else {
-                r--;
+                R--;
             }
         }
-        
-        return maxArea;
+        return ans;
     }
 }
