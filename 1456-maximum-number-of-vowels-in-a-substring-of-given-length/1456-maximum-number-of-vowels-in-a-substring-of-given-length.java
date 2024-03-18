@@ -10,11 +10,16 @@ class Solution {
 
         while(j<k) {
             if(ls.contains(s.charAt(j))) {
-                maxN++;
                 currN++;
             }
             j++;
         }
+
+        if(currN == k)
+            return k;
+
+        maxN = currN;
+        
         while(j<s.length()) {
             if(ls.contains(s.charAt(i))) {
                 currN--;
