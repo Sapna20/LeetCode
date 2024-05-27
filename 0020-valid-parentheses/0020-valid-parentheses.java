@@ -1,25 +1,38 @@
 class Solution {
-    public boolean isPair(Character o, Character c) {
-
-        return (o == '(' && c == ')') || (o == '{' && c == '}') || (o == '[' && c == ']');
-
-    }
     public boolean isValid(String s) {
-        Stack<Character> st = new Stack<Character> ();
+        List<Character> openBrackets = new ArrayList<Character>();
+        List<Character> closeBrackets = new ArrayList<Character>();
+        Stack<Character> st = new Stack<Character>();
 
-        for(int i=0; i<s.length(); i++) {
-            if(s.charAt(i) == '(' || s.charAt(i) == '{' || s.charAt(i) == '[') {
-                st.push(s.charAt(i));
-            } else if (s.charAt(i) == ')' || s.charAt(i) == '}' || s.charAt(i) == ']' ) {
-                if(!st.isEmpty() && isPair(st.peek(), s.charAt(i))) {
+        openBrackets.add('{');
+        openBrackets.add('[');
+        openBrackets.add('(');
+
+        closeBrackets.add('}');
+        closeBrackets.add(']');
+        closeBrackets.add(')');
+
+        int i=0, n=s.length();
+
+        while(i<n) {
+            Character c = s.charAt(i);
+            if(openBrackets.contains(c)) {
+                st.push(c);
+            }
+            else if (closeBrackets.contains(c) && !st.isEmpty()) {
+                Character temp = st.peek();
+                if((c == ')' && temp == '(') || (c == '}' && temp == '{') || (c == ']' && temp == '[')) {
                     st.pop();
                 } else {
                     return false;
                 }
+            } 
+            else {
+                return false;
             }
+            i++;
         }
 
-        return st.empty();
-        
+        return st.isEmpty();
     }
 }
