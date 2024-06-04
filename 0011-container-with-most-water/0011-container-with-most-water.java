@@ -1,8 +1,7 @@
 class Solution {
     public int maxArea(int[] height) {
-        int L = 0;
-        int R = height.length-1;
-        int ans = 0;
+        int L = 0, R = height.length-1, ans = 0;
+
         while(L<R) {
             ans = Math.max(ans, Math.min(height[L], height[R])*(R-L));
             if(height[L] < height[R]) {
