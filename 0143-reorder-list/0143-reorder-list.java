@@ -23,48 +23,23 @@ class Solution {
         return prev;
     }
     public void reorderList(ListNode head) {
-        // ListNode slowPtr = head;
-        // ListNode fastPtr = head;
-
-        // while(fastPtr != null && fastPtr.next != null) {
-        //     fastPtr = fastPtr.next.next;    
-        //     if(fastPtr == null || fastPtr.next == null) {
-        //         ListNode temp = slowPtr;
-        //         slowPtr = slowPtr.next;
-        //         temp.next = null;
-        //         break;
-        //     }
-        //     slowPtr = slowPtr.next;
-        // }
         int N=0, n=1;
         ListNode temp = head;
-
         while(temp != null) {
             N++;
             temp = temp.next;
         }
-
-        if(N==1) {
+        if(N==1) 
             return;
-        }
-
         temp = head;
-
         while(n < N/2) {
             temp = temp.next;
             n++;
         }
 
-
         ListNode head2 = reverseList(temp.next);
         temp.next = null;
         ListNode head1 = head;
-
-        // while(head2!=null) {
-        //     System.out.println(head2.val);
-        //     head2 = head2.next;
-        // }
-
         ListNode dummy = new ListNode();
         int i=0;
 
@@ -85,7 +60,5 @@ class Solution {
         } else {
             dummy.next = head1;
         }
-
-
     }
 }
