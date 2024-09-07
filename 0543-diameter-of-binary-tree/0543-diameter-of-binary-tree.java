@@ -15,12 +15,17 @@
  */
 class Solution {
 
+    private HashMap<TreeNode, Integer> map = new HashMap<>();
+
     private int dia(TreeNode root) {
         if(root == null) {
             return 0;
         }
+        if(!this.map.containsKey(root)) {
+            map.put(root, 1 + Math.max(dia(root.left), dia(root.right)));
+        }
 
-        return 1 + Math.max(dia(root.left), dia(root.right));
+        return map.get(root);
     }
 
     public int diameterOfBinaryTree(TreeNode root) {
