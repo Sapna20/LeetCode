@@ -16,6 +16,7 @@
 class Solution {
 
     private HashMap<TreeNode, Integer> map = new HashMap<>();
+    private HashMap<TreeNode, Integer> dmap = new HashMap<>();
 
     private int dia(TreeNode root) {
         if(root == null) {
@@ -35,10 +36,16 @@ class Solution {
 
         int rootDia = dia(root.left) + dia(root.right);
 
-        return Math.max(rootDia, 
-                Math.max(diameterOfBinaryTree(root.left),
-                        diameterOfBinaryTree(root.right))
+        if(!dmap.containsKey(root)) {
+            dmap.put(root, 
+                        Math.max(rootDia, 
+                            Math.max(diameterOfBinaryTree(root.left),
+                                    diameterOfBinaryTree(root.right))
+                            )
                     );
+        }
+
+        return dmap.get(root);
 
     }
 }
