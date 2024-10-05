@@ -1,25 +1,24 @@
 class Solution {
     public void moveZeroes(int[] nums) {
-        int n = 1;
-        int z = 0;
+        int i=0, j=0, n=nums.length;
 
-        while(z<n && n<nums.length && z<nums.length) {
-            while( z<nums.length && nums[z] != 0) {
-                z++;
-            }
-            n = n > z ? n : z+1;
-
-            while( n < nums.length && nums[n] == 0) {
-                n++;
+        while(i<n && j<n) {
+            while(i<n && nums[i] != 0) {
+                i++;
             }
 
-            if(n < nums.length) {
-                int temp = nums[z];
-                nums[z] = nums[n];
-                nums[n] = temp;
+            j = i+1;
+            while(j<n && nums[j] == 0) {
+                j++;
+            }
+
+            if(j<n) {
+                int temp = nums[i];
+                nums[i] = nums[j];
+                nums[j] = temp;
             }
         }
-
+        
         return;
     }
 }
