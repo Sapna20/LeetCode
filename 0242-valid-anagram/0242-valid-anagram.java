@@ -3,7 +3,6 @@ class Solution {
         if(s.length() != t.length()) {
             return false;
         }
-        int n = s.length();
 
         char[] s_arr = s.toCharArray();
         char[] t_arr = t.toCharArray();
