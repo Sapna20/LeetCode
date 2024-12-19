@@ -6,7 +6,7 @@ class Solution {
             boolean flag = true;
 
             for(j=0; j<needle.length(); j++) {
-                if(haystack.charAt(i+j) != needle.charAt(j)) {
+                if(i+j >= haystack.length() || haystack.charAt(i+j) != needle.charAt(j)) {
                     flag = false;
                     break;
                 }
