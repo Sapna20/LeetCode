@@ -38,15 +38,16 @@ class Solution {
     public int minDepth(TreeNode root) {
         if(root == null)
             return 0;
+
         int leftMin = 0;
         int rightMin = 0;
 
         if(root.left != null) {
-            leftMin = solve(root.left);
+            leftMin = minDepth(root.left);
         }
 
         if(root.right != null) {
-            rightMin = solve(root.right);
+            rightMin = minDepth(root.right);
         }
 
         return leftMin == 0 ? 1 + rightMin 
