@@ -27,6 +27,15 @@ class Solution {
             dp[i] = -1;
     }
 
+    private int solveBottomUp(int[] nums, int start, int n) {
+        int[] dp = new int[n+2];
+        
+        for(int i=n-1; i>=start; i--) 
+            dp[i] = Math.max(nums[i] + dp[i+2], dp[i+1]);
+        
+        return dp[start];
+    }
+
     public int rob(int[] nums) {
        
         // return Math.max( nums[0],
@@ -34,12 +43,17 @@ class Solution {
         //             solveRecursive(nums, 1, nums.length-1))
         // );
 
-        int[] dp = new int[nums.length];
-        refreshDP(dp);
+        // int[] dp = new int[nums.length];
+        // refreshDP(dp);
         
-        int a = solveMemo(nums, 0, nums.length-2, dp);
-        refreshDP(dp);
-        int b = solveMemo(nums, 1, nums.length-1, dp);
+        // int a = solveMemo(nums, 0, nums.length-2, dp);
+        // refreshDP(dp);
+        // int b = solveMemo(nums, 1, nums.length-1, dp);
+
+        // return Math.max(nums[0], Math.max(a, b));
+
+        int a = solveBottomUp(nums, 0, nums.length-1);
+        int b = solveBottomUp(nums, 1, nums.length);
 
         return Math.max(nums[0], Math.max(a, b));
 
