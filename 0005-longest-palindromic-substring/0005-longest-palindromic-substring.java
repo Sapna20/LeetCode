@@ -44,9 +44,43 @@ class Solution {
         return ans;
     }
 
-    private String solveTwoPointer(String s) {
-        return "";
-    }
+    // private String checkPalindromeCustom(String s, Integer max_so_far, String ans, int l, int r, int n) {
+    //         while(l >= 0 && r < n) {
+    //             if(s.charAt(l) == s.charAt(r)) {
+    //                 if (max_so_far < r-l+1) {
+    //                     max_so_far = r-l+1;
+    //                     ans = s.substring(l, r+1);
+    //                 }
+    //             }
+    //             l--;
+    //             r++;
+    //         }
+
+    //         return ans;
+    // }
+
+    // private String solveTwoPointer(String s) {
+    //     int n = s.length();
+    //     int max_so_far = 0;
+    //     String ans = "";
+
+    //     for(int k=0; k<n; k++) {
+    //         // odd length palindrome check
+    //         int l=k;
+    //         int r=k;
+
+    //         ans = checkPalindromeCustom(s, max_so_far, ans, l, r, n);
+    //         max_so_far = ans.length();
+            
+    //         // even length palindrome check
+    //         l=k;
+    //         r=k+1;
+    //         ans = checkPalindromeCustom(s, max_so_far, ans, l, r, n);
+    //         max_so_far = ans.length();
+    //     }
+
+    //     return ans;
+    // }
 
     public String longestPalindrome(String s) {
         return solveDP(s);
