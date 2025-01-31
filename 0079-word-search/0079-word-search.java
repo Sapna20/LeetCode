@@ -1,40 +1,41 @@
 class Solution {
 
-    private boolean solve(int i, int j, int k, char[][] board, String word, boolean[][] visited) {
+    private boolean isValid(int m, int n, int i, int j) {
+        return i<m && j<n && i>=0 && j>=0;
+    }
+
+    private boolean isExist(char[][] board, String word, int i, int j, int index, boolean[][] isVisited) {
         int m = board.length;
         int n = board[0].length;
-        if(i >= m || j >= n || i<0 || j<0 || k >= word.length() || visited[i][j] || board[i][j] != word.charAt(k)) {
+        if(index == word.length()) {
+            return true;
+        }
+
+        if(!isValid(m, n, i, j) || isVisited[i][j] || word.charAt(index) != board[i][j]) {
             return false;
         }
 
-        if(k+1 == word.length()) {
-            return true;
-        }
-        // System.out.println("" + i + " " + j + board[i][j]);
-        visited[i][j] = true;
-        if(solve(i+1, j, k+1, board, word, visited) || solve(i-1, j, k+1, board, word, visited)|| solve(i, j+1, k+1, board, word, visited) || solve(i, j-1, k+1, board, word, visited)) {
-            return true;
-        }
-        visited[i][j] = false;
-        return false;
+        isVisited[i][j] = true;
+
+        boolean found = isExist(board, word, i+1, j, index+1, isVisited)
+                || isExist(board, word, i-1, j, index+1, isVisited)
+                || isExist(board, word, i, j+1, index+1, isVisited)
+                || isExist(board, word, i, j-1, index+1, isVisited);
+
+        isVisited[i][j] = false;
+
+        return found;
     }
 
     public boolean exist(char[][] board, String word) {
         int m = board.length;
         int n = board[0].length;
-        boolean[][] visited = new boolean[m][n];
+        boolean[][] isVisited = new boolean[m][n];
+
         for(int i=0; i<m; i++) {
             for(int j=0; j<n; j++) {
-                if(board[i][j] == word.charAt(0)) {
-                    if(solve(i, j, 0, board, word, visited)) {
-                        return true;
-                    } else {
-                        for(int p=0; p<m; p++) {
-                            for(int q=0; q<n; q++) {
-                                visited[p][q] = false;
-                            }
-                        }
-                    }
+                if(!isVisited[i][j] && isExist(board, word, i, j, 0, isVisited)) {
+                    return true;
                 }
             }
         }
