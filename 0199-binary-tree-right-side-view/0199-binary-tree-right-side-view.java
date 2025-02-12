@@ -15,28 +15,27 @@
  */
 class Solution {
 
-    private List<Integer> getView(TreeNode root, List<Integer> ls, int level) {
+    private void solve(TreeNode root, List<Integer> ls, int level) {
         if(root == null) {
-            return ls;
+            return;
         }
 
-        if(ls.size() < level) {
+        if(level == ls.size()) {
             ls.add(root.val);
         }
 
-        ls = getView(root.right, ls, level+1);
-        ls = getView(root.left, ls, level+1);
+        solve(root.right, ls, level+1);
+        solve(root.left, ls, level+1);
 
-        return ls;
-        
+        return;
     }
 
     public List<Integer> rightSideView(TreeNode root) {
         List<Integer> ls = new ArrayList<Integer>();
-        if(root == null) {
-            return ls;
-        }
+        int level = 0;
 
-        return getView(root, ls, 1);
+        solve(root, ls, level);
+
+        return ls;
     }
 }
