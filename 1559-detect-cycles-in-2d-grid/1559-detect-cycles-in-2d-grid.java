@@ -1,5 +1,8 @@
 class Solution {
 
+    int[] DIR_X = {1, -1, 0, 0};
+    int[] DIR_Y = {0, 0, 1, -1};
+
     private boolean isValid(int i, int j, int m, int n, int parent_i, int parent_j) {
         return i >= 0 && j >= 0 && i < m && j < n && !(parent_i == i && parent_j == j);
     }
@@ -12,18 +15,13 @@ class Solution {
 
         isVisited[i][j] = true;
         boolean ans = false;
-        
-        if(isValid(i+1, j, m, n, parent_i, parent_j) && grid[i][j] == grid[i+1][j]) {
-            ans = ans || dfs(grid, isVisited, i+1, j, i, j, m, n);
-        } 
-        if(isValid(i, j+1, m, n, parent_i, parent_j) && grid[i][j] == grid[i][j+1]) {
-            ans = ans || dfs(grid, isVisited, i, j+1, i, j, m, n);
-        } 
-        if(isValid(i-1, j, m, n, parent_i, parent_j) && grid[i][j] == grid[i-1][j]) {
-            ans = ans || dfs(grid, isVisited, i-1, j, i, j, m, n);
-        } 
-        if(isValid(i, j-1, m, n, parent_i, parent_j) && grid[i][j] == grid[i][j-1]) {
-            ans = ans || dfs(grid, isVisited, i, j-1, i, j, m, n);
+
+        for(int p=0; p<4; p++) {
+            int new_i = i + DIR_X[p];
+            int new_j = j + DIR_Y[p];
+            if(isValid(new_i, new_j, m, n, parent_i, parent_j) && grid[i][j] == grid[new_i][new_j]) {
+                ans = ans || dfs(grid, isVisited, new_i, new_j, i, j, m, n);
+            } 
         }
         return ans;
     }
