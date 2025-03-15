@@ -15,27 +15,22 @@
  */
 class Solution {
 
-    private void solve(TreeNode root, List<Integer> ls, int level) {
-        if(root == null) {
+    private void traversal(TreeNode root, int currLevel, List<Integer> rightMostNodes) {
+        if(root == null)
             return;
+        
+        int newLevel = rightMostNodes.size();
+        if(currLevel == newLevel) {
+            rightMostNodes.add(root.val);
         }
 
-        if(level == ls.size()) {
-            ls.add(root.val);
-        }
-
-        solve(root.right, ls, level+1);
-        solve(root.left, ls, level+1);
-
-        return;
+        traversal(root.right, currLevel+1, rightMostNodes);
+        traversal(root.left, currLevel+1, rightMostNodes);
     }
 
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> ls = new ArrayList<Integer>();
-        int level = 0;
-
-        solve(root, ls, level);
-
-        return ls;
+        List<Integer> ans = new ArrayList<Integer>();
+        traversal(root, 0, ans);
+        return ans;
     }
 }
