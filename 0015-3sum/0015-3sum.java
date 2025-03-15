@@ -1,32 +1,41 @@
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
         int n = nums.length;
         List<List<Integer>> ans = new ArrayList<List<Integer>>();
-        Arrays.sort(nums);
-        
-        for(int i=0; i<n-1; i++) {
-            while(i>0 && i<n && nums[i-1] == nums[i]) {
-                i++;
-            }
-            int j=i+1, k=n-1;
-            while(j<k && j<n) {
-                int temp = nums[i] + nums[j] + nums[k];
-                if( temp == 0 ) {
-                    List<Integer> ls = new ArrayList<Integer>();
-                    ls.add(nums[i]);
-                    ls.add(nums[j]);
-                    ls.add(nums[k]);
-                    ans.add(ls);
-                    while(j<n-1 && nums[j] == nums[j+1]) {
-                        j++;
-                    }
-                    j++;
-                } else if (temp < 0) {
-                    j++;
-                } else if (temp > 0) {
-                    k--;
+
+        for(int i=0; i<n; i++) {
+            if(i > 0) {
+                while( i<n && nums[i-1] == nums[i]) {
+                    i++;
                 }
+                if(i >= n)
+                    break;
             }
+                int x = nums[i];
+                int L = i+1;
+                int R = n-1;
+
+                while( L < R ) {
+                    int y = nums[L];
+                    int z = nums[R];
+                    int sum = x + y + z;
+                    if(sum == 0) {
+                        List<Integer> ls = new ArrayList<Integer>();
+                        ls.add(x);
+                        ls.add(y);
+                        ls.add(z);
+                        ans.add(ls);
+                        L++;
+                        while(L<n && nums[L-1] == nums[L]){
+                            L++;
+                        }
+                    } else if(sum > 0) {
+                        R--;
+                    } else {
+                        L++;
+                    }
+                }
         }
 
         return ans;
