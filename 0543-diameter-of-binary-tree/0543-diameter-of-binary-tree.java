@@ -34,16 +34,18 @@ class Solution {
             return 0;
         }
 
+        if(dmap.containsKey(root)) {
+            return dmap.get(root);
+        }
+
         int rootDia = dia(root.left) + dia(root.right);
 
-        if(!dmap.containsKey(root)) {
-            dmap.put(root, 
-                        Math.max(rootDia, 
-                            Math.max(diameterOfBinaryTree(root.left),
-                                    diameterOfBinaryTree(root.right))
-                            )
-                    );
-        }
+        dmap.put(root, 
+                    Math.max(rootDia, 
+                        Math.max(diameterOfBinaryTree(root.left),
+                                diameterOfBinaryTree(root.right))
+                        )
+                );
 
         return dmap.get(root);
 
