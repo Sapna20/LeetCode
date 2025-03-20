@@ -1,56 +1,83 @@
+class Node {
+    Node left;
+    Node right;
+    int val;
+    int key;
+
+    Node(int key, int val) {
+        this.key = key;
+        this.val = val;
+    }
+}
+
 class LRUCache {
-
+    Node cacheRear;
+    Node cacheFront;
+    Map<Integer, Node> map;
     int capacity;
-    int curr;
-    HashMap<Integer, Integer> map;
-    Queue<Integer> q;
-
+    int currSize;
+    
     public LRUCache(int capacity) {
+        map = new HashMap<Integer, Node>();
         this.capacity = capacity;
-        this.curr = 0;
-        this.map = new HashMap<Integer, Integer>();
-        this.q = new LinkedList<Integer>();
+        cacheRear = new Node(-1, -1);
+        cacheFront = new Node(-1, -1);
+        cacheRear.left = cacheFront;
+        cacheFront.right = cacheRear;
     }
     
     public int get(int key) {
-        if(this.map.containsKey(key)) {
-            this.q.remove(key);
-            this.q.add(key);
-            // System.out.println("get" + key + " " + this.q + this.map);
-            return this.map.get(key);
-        } else 
-            return -1;
+        if(map.containsKey(key)) {
+            Node cacheNode = map.get(key);
+            removeFromCache(cacheNode);
+            insertIntoCache(cacheNode);
+
+            return cacheNode.val;
+        }
+        return -1;
     }
     
     public void put(int key, int value) {
-        if(this.curr < this.capacity ) {
-            if(!this.map.containsKey(key)) {
-                this.map.put(key, value);
-                this.q.add(key);
-                this.curr++;
-                // System.out.println("put1 " + key + " " + this.q + this.map);
-            } else {
-                this.q.remove(key);
-                this.q.add(key);
-                this.map.put(key, value);
-                // System.out.println("put2 " + key + " " + this.q + this.map);
-            }
-
+        if(map.containsKey(key)) {
+            Node cacheNode = map.get(key);
+            cacheNode.val = value;
+            removeFromCache(cacheNode); // helper method
+            insertIntoCache(cacheNode); // helper method
+            map.put(key, cacheNode);
         } else {
-            if(this.map.containsKey(key)) {
-                this.q.remove(key);
-                this.q.add(key);
-                this.map.put(key, value);
-                // System.out.println("put3 " + key + " " + this.q + this.map);                
-            } else {
-                int k = this.q.peek();
-                this.map.remove(k);
-                this.q.remove(k);
-                this.map.put(key, value);
-                this.q.add(key);
-                // System.out.println("put4 " + key + " " + this.q + this.map);
+            if(currSize == capacity) {
+                int keyToRemove = cacheFront.right.key;
+                removeFromCache(cacheFront.right); // helper method
+                map.remove(keyToRemove); 
+                currSize--;
             }
+            Node cacheNode = new Node(key, value);
+            insertIntoCache(cacheNode); // helper method
+            map.put(key, cacheNode);
+            currSize++;
         }
+    }
+
+    void insertIntoCache(Node cacheNode) {
+        Node prev = cacheRear.left;
+        prev.right = cacheNode;
+        cacheNode.left = prev;
+        cacheRear.left = cacheNode;
+        cacheNode.right = cacheRear;
+    }
+
+    void removeFromCache(Node cacheNode) {
+        Node prev = cacheNode.left;
+        Node next = cacheNode.right;
+
+        if(prev != null) {
+            prev.right = next;
+        }
+        if(next != null) {
+            next.left = prev;
+        }
+        cacheNode.left = null;
+        cacheNode.right = null;
     }
 }
 
