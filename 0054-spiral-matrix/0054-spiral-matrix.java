@@ -1,38 +1,64 @@
 class Solution {
     public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> ls = new ArrayList<>();
         int m = matrix.length;
         int n = matrix[0].length;
-        List<Integer> ans = new ArrayList<Integer> ();
-        int left=0, right=n-1, top=0, bottom=m-1;
 
-        while(top <= bottom) {
-            for(int i=left; i<=right; i++) {
-                ans.add(matrix[top][i]);
+        int left = 0;
+        int right = n;
+        int bottom = m;
+        int top = 0;
+        int k =0;
+
+        while(left < right && top < bottom) {
+            for(int i=left; i < right; i++) {
+                ls.add(matrix[top][i]);
             }
             top++;
 
-            if(right >= left) {
-                for(int i=top; i<=bottom; i++) {
-                    ans.add(matrix[i][right]);
-                }
-                right--;
-            }
+            // // comment
+            // for(int x : ls) {
+            //     System.out.println(x);
+            // } //
 
-            if(top <= bottom) {
-                for(int i=right; i>=left; i--) {
-                    ans.add(matrix[bottom][i]);
-                }
-                bottom--;
+            for(int i=top; i < bottom; i++) {
+                System.out.println("indices = " + right + ", " + i);
+                ls.add(matrix[i][right-1]);
             }
+            right--;
 
-            if(left<=right) {
-                for(int i=bottom; i>=top; i--) {
-                    ans.add(matrix[i][left]);
-                }
-                left++;
+            // // comment
+            // for(int x : ls) {
+            //     System.out.println(x);
+            // } //
+    
+            if(top >= bottom) {
+                break;
             }
+            for(int i=right-1; i >= left; i--) {
+                ls.add(matrix[bottom-1][i]);
+            }
+            bottom--;
+
+            // // comment
+            // for(int x : ls) {
+            //     System.out.println(x);
+            // } //
+
+            if(left >= right) {
+                break;
+            }
+            for(int i=bottom-1; i >= top; i--) {
+                ls.add(matrix[i][left]);
+            }
+            left++;
+
+            // // comment
+            // for(int x : ls) {
+            //     System.out.println(x);
+            // } //
         }
 
-        return ans;
+        return ls;
     }
 }
