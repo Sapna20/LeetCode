@@ -1,52 +1,37 @@
 class Solution {
 
-    private boolean dfs(Map<Integer, List<Integer>> graph, int source, int destination, boolean[] visited) {
+    private boolean isExists(List<Integer>[] graph, int source, int destination, boolean[] visited) {
+        if(source == destination)
+            return true;
+        
         visited[source] = true;
-        boolean ans = false;
 
-        for(int nb : graph.get(source)) {
-            if(nb == destination) 
-                return true;
-            if(!visited[nb])
-                ans = ans || dfs(graph, nb, destination, visited);
+        List<Integer> adj = graph[source];
+        boolean exists = false;
+
+        for(int v : adj) {
+            if(!visited[v]) 
+                exists = exists || isExists(graph, v, destination, visited);
         }
-        return ans;
+
+        return exists;
     }
 
     public boolean validPath(int n, int[][] edges, int source, int destination) {
-
-        if(edges.length == 0) {
-            return source == destination;
-        }
-        
-        Map<Integer, List<Integer>> map = new HashMap<>();
+        List<Integer>[] graph = new ArrayList[n];
         boolean[] visited = new boolean[n];
 
-        for(int[] edge : edges) {
-            int a = edge[0];
-            int b = edge[1];
-
-            if(map.containsKey(a)) {
-                List<Integer> nb = map.get(a);
-                nb.add(b);
-                map.put(a, nb);
-            } else {
-                List<Integer> nb = new ArrayList<>();
-                nb.add(b);
-                map.put(a, nb);
-            }
-
-            if(map.containsKey(b)) {
-                List<Integer> nb = map.get(b);
-                nb.add(a);
-                map.put(b, nb);
-            } else {
-                List<Integer> nb = new ArrayList<>();
-                nb.add(a);
-                map.put(b, nb);
-            }
+        for(int i=0; i<n; i++) {
+            graph[i] = new ArrayList<Integer>();
         }
 
-        return dfs(map, source, destination, visited);
+        for(int[] e : edges) {
+            int u = e[0];
+            int v = e[1];
+            graph[u].add(v);
+            graph[v].add(u);
+        }
+
+        return isExists(graph, source, destination, visited);
     }
 }
