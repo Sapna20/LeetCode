@@ -1,45 +1,36 @@
+
+class Pair {
+    int a;
+    int b;
+
+    Pair (int a, int b) {
+        this.a = a;
+        this.b = b;
+    }
+}
+
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        int n = nums.length;
-        List<List<Integer>> freq = new ArrayList<List<Integer>> ();
-        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Queue<Pair> pq = new PriorityQueue<Pair>((obj1, obj2) -> obj2.b - obj1.b);
+        Map<Integer, Integer> map = new HashMap<>();
 
-        for(int i=0; i<n+1; i++) {
-            List<Integer> ls = new ArrayList<Integer>();
-            freq.add(ls);
+        for(int z : nums) {
+            map.put(z, map.getOrDefault(z,0) + 1);
         }
 
-        for(int i=0; i<n; i++) {
-            if(map.containsKey(nums[i])) {
-                int c = map.get(nums[i]);
-                map.put(nums[i], c+1);
-            } else {
-                map.put(nums[i], 1);
-            }
-        } 
-
         for(Map.Entry<Integer, Integer> e : map.entrySet()) {
-            freq.get(e.getValue()).add(e.getKey());
+            Pair x = new Pair(e.getKey(), e.getValue());
+            pq.add(x);
         }
 
         int[] ans = new int[k];
-        int j=0;
-
-        for(int i=n; i>0; i--) {
-            if(!freq.get(i).isEmpty()) {
-                for(int v : freq.get(i)) {
-                    ans[j] = v;
-                    j++;
-                    if(j==k) {
-                        break;
-                    }
-                }
-                if(j==k) {
-                    break;
-                }
-            }
+        for(int i=0; i<k; i++) {
+            Pair x = pq.peek();
+            ans[i] = x.a;
+            pq.poll();
         }
 
         return ans;
+
     }
 }
