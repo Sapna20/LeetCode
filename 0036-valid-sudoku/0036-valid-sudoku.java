@@ -1,42 +1,44 @@
 class Solution {
     public boolean isValidSudoku(char[][] board) {
-        List<Set<Character>> row = new ArrayList<Set<Character>>();
-        List<Set<Character>> col = new ArrayList<Set<Character>>();
-
-        List<List<Set<Character>>> grid = new ArrayList<List<Set<Character>>>();
+        List<Set<Character>> rows = new ArrayList<Set<Character>>();
+        List<Set<Character>> cols = new ArrayList<Set<Character>>();
+        List<List<Set<Character>>> boxes = new ArrayList<List<Set<Character>>>();
 
         for(int i=0; i<9; i++) {
-            Set<Character> r = new HashSet<Character>();
-            row.add(r);
-            Set<Character> c = new HashSet<Character>();
-            col.add(c);
+            Set<Character> row = new HashSet<Character>();
+            Set<Character> col = new HashSet<Character>();
+            rows.add(row);
+            cols.add(col);
         }
 
         for(int i=0; i<3; i++) {
-            List<Set<Character>> g = new ArrayList<Set<Character>>();
-            grid.add(g);
+            List<Set<Character>> box_row = new ArrayList<Set<Character>>();
             for(int j=0; j<3; j++) {
-                Set<Character> item = new HashSet<Character>();
-                grid.get(i).add(item);
+                Set<Character> box = new HashSet<Character>();
+                box_row.add(box);
             }
+            boxes.add(box_row);
         }
 
         for(int i=0; i<9; i++) {
             for(int j=0; j<9; j++) {
-                char c = board[i][j];
-                if(c != '.') {
-                    if(row.get(i).contains(c) || col.get(j).contains(c) || grid.get(i/3).get(j/3).contains(c)) {
-                        return false;
-                    } else {
-                        row.get(i).add(c);
-                        col.get(j).add(c);
-                        grid.get(i/3).get(j/3).add(c);
-                    }
-                } 
-            }
-        }
-        
-        return true;
+                char x = board[i][j];
 
+                if(x == '.') continue;
+
+                Set<Character> row = rows.get(i);
+                Set<Character> col = cols.get(j);
+                Set<Character> box = boxes.get(i/3).get(j/3);
+
+                if(row.contains(x) || col.contains(x) || box.contains(x))
+                    return false;
+                
+                row.add(x); 
+                col.add(x);
+                box.add(x);
+            }
+        } 
+        return true;
+        
     }
 }
