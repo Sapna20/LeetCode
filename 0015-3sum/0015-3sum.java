@@ -9,10 +9,12 @@ class Solution {
             int target = -nums[i];
             int j=i+1, k=n-1;
             while(j<k) {
+                if(j>i+1 && nums[j]==nums[j-1]) {
+                    j++; continue;
+                } 
                 if(nums[j] + nums[k] == target) {
                     ans.add(new ArrayList<Integer>(Arrays.asList(nums[i], nums[j], nums[k])));
                     j++;
-                    k--;
                 } else if (nums[j] + nums[k] > target) {
                     k--;
                 } else {
