@@ -1,48 +1,53 @@
 class Solution {
-    public int largestRectangleArea(int[] heights) {
-        int n = heights.length;
-        int[] rSi = new int[n];
-        int[] lSi = new int[n];
 
+    private int[] nextSmallerElementIdx(int[] h, int defaultIdx) {
         Stack<Integer> st = new Stack<Integer>();
-
-        //find next smaller integer index
-        for(int i=n-1; i>=0; i--) {
-            while(!st.empty() && heights[st.peek()] >= heights[i]) {
+        int[] nse = new int[h.length]; 
+        for(int i=h.length-1; i>=0; i--) {
+            while(!st.empty() && h[st.peek()] >= h[i]) {
                 st.pop();
             }
 
-            if(st.empty()) {
-                rSi[i] = n+1;
-            } else {
-                rSi[i] = st.peek()+1;
-            }
+            nse[i] = st.empty() ? defaultIdx : st.peek();
+            
             st.push(i);
         }
 
-        while(!st.empty())
-            st.pop();
+        return nse;
+    }
 
-        //find prev smaller integer index
-        for(int i=0; i<n; i++) {
-            while(!st.empty() && heights[st.peek()] >= heights[i]) {
+    private int[] prevSmallerElementIdx(int[] h, int defaultIdx) {
+        Stack<Integer> st = new Stack<Integer>();
+        int[] pse = new int[h.length]; 
+        for(int i=0; i<h.length; i++) {
+            while(!st.empty() && h[st.peek()] >= h[i]) {
                 st.pop();
             }
 
-            if(st.empty()) {
-                lSi[i] = 0;
-            } else {
-                lSi[i] = st.peek()+1;
-            }
-            st.push(i);   
-        } 
-
-        int currMax = 0, ans = 0;
-
-        for(int i=0; i<n; i++) {
-            ans = Math.max(ans, (rSi[i] - lSi[i]-1)*heights[i]);
+            pse[i] = st.empty() ? defaultIdx : st.peek();
+            
+            st.push(i);
         }
 
-        return ans;
+        return pse;
+    }
+
+    public int largestRectangleArea(int[] heights) {
+        int n = heights.length;
+        int[] nsl = new int[n];
+        int[] nsr = new int[n];
+        
+        nsr = nextSmallerElementIdx(heights, n);
+        nsl = prevSmallerElementIdx(heights, -1);
+
+        int maxArea=0;
+
+        for(int i=0; i<n; i++) {
+            maxArea = Math.max(maxArea, 
+                        (nsr[i] - nsl[i] - 1) * heights[i]
+                    );
+        }
+
+        return maxArea;
     }
 }
