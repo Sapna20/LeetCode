@@ -1,68 +1,36 @@
 class Solution {
-    public int evalRPN(String[] tokens) {
-        Stack<Integer> st = new Stack<Integer> ();
-        List<String> ls = new ArrayList<String> ();
-        ls.add("+");
-        ls.add("-");
-        ls.add("*");
-        ls.add("/");
 
-        for(int i=0; i<tokens.length; i++) {
-            if(!ls.contains(tokens[i])) {
-                st.push(Integer.parseInt(tokens[i]));
+    private int resolve(String op, int a, int b) {
+        if(op.equals("+")) {
+            return b+a;
+        }
+        if(op.equals("-")) {
+            return b-a;
+        }
+        if(op.equals("*")) {
+            return b*a;
+        }
+        if(op.equals("/")) {
+            return b/a;
+        }
+
+        return 1;
+    }
+
+    public int evalRPN(String[] tokens) {
+        Stack<Integer> st = new Stack<Integer>();
+        List<String> operator = new ArrayList<String>(Arrays.asList("+", "-", "*", "/"));
+
+        for(String str : tokens) {
+            if(operator.contains(str)) {
+                int a = st.pop();
+                int b = st.pop();
+                st.push(resolve(str, a, b));
             } else {
-                if(tokens[i].charAt(0) == '+') {
-                    int a = 1;
-                    int b = 1;
-                    if(!st.isEmpty()) {
-                        a = st.pop();
-                    }
-                    if(!st.isEmpty()) {
-                        b = st.pop();
-                    }
-                    st.push(a+b);
-                } 
-                if(tokens[i].charAt(0) == '-') {
-                    int a = 1;
-                    int b = 1;
-                    if(!st.isEmpty()) {
-                        a = st.pop();
-                    }
-                    if(!st.isEmpty()){
-                        b = st.pop();
-                    }
-                    st.push(b-a);
-                }
-                if(tokens[i].charAt(0) == '*') {
-                    int a = 1;
-                    int b = 1;
-                    if(!st.isEmpty()) {
-                        a = st.pop();
-                    }                    
-                    if(!st.isEmpty()) {
-                        b = st.pop();
-                    }
-                    st.push(a*b);
-                }
-                if(tokens[i].charAt(0) == '/') {
-                    int a = 1;
-                    int b = 1;
-                    if(!st.isEmpty()) {
-                        a = st.pop();
-                    }                    
-                    if(!st.isEmpty()) {
-                        b = st.pop();
-                    }
-                    st.push(b/a);
-                } 
+                st.push(Integer.valueOf(str));
             }
         }
-        int ans = 1;
-        if(!st.isEmpty()) {
-            ans = st.pop();
-        }
 
-        return ans;
-
+        return st.pop();
     }
 }
