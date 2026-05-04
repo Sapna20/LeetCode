@@ -6,36 +6,34 @@ class Solution {
         int start = 0, end = m-1;
 
         while(start <= end) {
-            int mid = (start + end)/2;
-            if(matrix[mid][0] == target) {
+            int mid = (end - start)/2 + start;
+            if(matrix[mid][0] == target)
                 return true;
-            } else if(matrix[mid][0] > target) {
-                end = mid - 1;
-            } else if (matrix[mid][0] < target){
-                start = mid + 1;
-            }
+            else if (matrix[mid][0] > target) 
+                end = mid-1;
+            else
+                start = mid+1;
         }
+        System.out.println(end);
 
-        int ind = end;
-
-        if( ind < m && ind > -1 ) {
+        if(end >= 0) {
+            int row = end;
+            
             start = 0;
             end = n-1;
 
             while(start <= end) {
-                int mid = (start + end)/2;
-                if(matrix[ind][mid] == target) {
+                int mid = (end - start)/2 + start;
+                if(matrix[row][mid] == target)
                     return true;
-                } else if(matrix[ind][mid] > target) {
-                    end = mid - 1;
-                } else if (matrix[ind][mid] < target){
-                    start = mid + 1;
-                }
+                else if (matrix[row][mid] > target) 
+                    end = mid-1;
+                else
+                    start = mid+1;
             }
         }
 
         return false;
 
-        
     }
 }
