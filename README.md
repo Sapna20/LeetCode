@@ -17,6 +17,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0036-valid-sudoku](https://github.com/Sapna20/LeetCode/tree/main/0036-valid-sudoku/) | Medium |
 | [0042-trapping-rain-water](https://github.com/Sapna20/LeetCode/tree/main/0042-trapping-rain-water/) | Hard |
 | [0049-group-anagrams](https://github.com/Sapna20/LeetCode/tree/main/0049-group-anagrams/) | Medium |
+| [0074-search-a-2d-matrix](https://github.com/Sapna20/LeetCode/tree/main/0074-search-a-2d-matrix/) | Medium |
 | [0084-largest-rectangle-in-histogram](https://github.com/Sapna20/LeetCode/tree/main/0084-largest-rectangle-in-histogram/) | Hard |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/Sapna20/LeetCode/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
 | [0128-longest-consecutive-sequence](https://github.com/Sapna20/LeetCode/tree/main/0128-longest-consecutive-sequence/) | Medium |
@@ -98,6 +99,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Binary Search
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0074-search-a-2d-matrix](https://github.com/Sapna20/LeetCode/tree/main/0074-search-a-2d-matrix/) | Medium |
 | [0167-two-sum-ii-input-array-is-sorted](https://github.com/Sapna20/LeetCode/tree/main/0167-two-sum-ii-input-array-is-sorted/) | Medium |
 | [0704-binary-search](https://github.com/Sapna20/LeetCode/tree/main/0704-binary-search/) | Easy |
 ## Dynamic Programming
@@ -109,6 +111,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0036-valid-sudoku](https://github.com/Sapna20/LeetCode/tree/main/0036-valid-sudoku/) | Medium |
+| [0074-search-a-2d-matrix](https://github.com/Sapna20/LeetCode/tree/main/0074-search-a-2d-matrix/) | Medium |
 ## Union-Find
 | Problem Name | Difficulty |
 | ------- | ------- |
