@@ -1,61 +1,48 @@
+class Pair {
+    String value;
+    int timeStamp;
+
+    Pair (String v, int t) {
+        value = v;
+        timeStamp = t;
+    }
+}
+
 class TimeMap {
 
     HashMap<String, List<Pair>> map;
 
     public TimeMap() {
-        map = new HashMap<>();
+        map = new HashMap<String, List<Pair>>();
     }
     
     public void set(String key, String value, int timestamp) {
-        if(map.containsKey(key)) {
-            List<Pair> ls = map.get(key);
-            ls.add(new Pair(value, timestamp));
-            map.put(key, ls);
-        } else {
-            List<Pair> ls = new ArrayList<Pair>();
-            ls.add(new Pair(value, timestamp));
-            map.put(key, ls);
-        }
+        List<Pair> ls = map.getOrDefault(key, new ArrayList<Pair>());
+        ls.add(new Pair(value, timestamp));
+        map.put(key, ls);
     }
     
     public String get(String key, int timestamp) {
-        List<Pair> ls = map.getOrDefault(key, new ArrayList<>());
-        if(ls.size() == 0)
-            return "";
-        
-        int n = ls.size();
-        int end = n-1;
+        return map.containsKey(key) ? binarySearchValue(map.get(key), timestamp) : "";
+    }
+
+    private String binarySearchValue(List<Pair> ls, int timestamp) {
         int start = 0;
+        int end = ls.size()-1;
 
         while(start <= end) {
-            int mid = start + (end - start)/2;
-            Pair mp = ls.get(mid);
-            String mv = mp.value;
-            int mt = mp.timestamp;
-
-            if(timestamp == mt) {
-                return mv;
-            } else if(timestamp > mt) {
-                start = mid+1;
-            } else {
+            int mid = (end-start)/2 + start;
+            if(ls.get(mid).timeStamp == timestamp) {
+                return ls.get(mid).value;
+            } else if (ls.get(mid).timeStamp > timestamp) {
                 end = mid-1;
+            } else {
+                start = mid+1;
             }
         }
 
-        return end != -1 ? ls.get(end).value : "";
+        return end < 0 ? "" : ls.get(end).value;
     }
-}
-
-class Pair {
-    String value;
-    int timestamp;
-
-    Pair(String value, int timestamp) {
-        this.value = value;
-        this.timestamp = timestamp;
-    }
-
-
 }
 
 /**
