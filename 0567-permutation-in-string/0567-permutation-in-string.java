@@ -1,31 +1,40 @@
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
-        int k = s1.length();
+        int m = s1.length();
         int n = s2.length();
-        if(k > n)
+
+        if(m > n) 
             return false;
 
-        Map<Character, Integer> map1 = new HashMap<>();
-        Map<Character, Integer> windowMap = new HashMap<>();
-        int i;
-        for(i=0; i<k; i++) {
-            Character key1 = s1.charAt(i);
-            Character key2 = s2.charAt(i);
-            map1.put(key1, map1.getOrDefault(key1, 1) + 1);
-            windowMap.put(key2, windowMap.getOrDefault(key2, 1) + 1);
+        Map<Character, Integer> map1 = new HashMap<Character, Integer>();
+        Map<Character, Integer> map2 = new HashMap<Character, Integer>();
+
+        for(int i=0; i<m; i++) {
+            map1.put(s1.charAt(i), map1.getOrDefault(s1.charAt(i), 0)+1);
         }
 
-        while(i<n) {
-            if(map1.equals(windowMap))
-                return true;
-            
-            windowMap.remove(s2.charAt(i-k));
-            windowMap.put(s2.charAt(i), windowMap.getOrDefault(s2.charAt(i), 1) + 1);
-            i++;
+        int j=0;
+        int i=0;
+        while(j < n) {
+           
+            map2.put(s2.charAt(j), map2.getOrDefault(s2.charAt(j), 0)+1);
+            if (j-i+1 == m) {
+
+                if(map1.equals(map2))
+                    return true;
+                if(map2.containsKey(s2.charAt(i))) {
+                    int val = map2.get(s2.charAt(i));
+                    if(val == 1) {
+                        map2.remove(s2.charAt(i));
+                    } else {
+                        map2.put(s2.charAt(i), val-1);
+                    }
+                }
+                i++;
+            }
+            j++;
         }
 
-
-        return map1.equals(windowMap);
-        
+        return false;
     }
 }
