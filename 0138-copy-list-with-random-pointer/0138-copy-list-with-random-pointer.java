@@ -15,46 +15,36 @@ class Node {
 
 class Solution {
     public Node copyRandomList(Node head) {
-        HashMap<Node, Node> map = new HashMap();
-        Node ptr = head;
-        Node ptr2 = null;
-        Node head2 = null;
 
-        if(ptr != null) {
-            Node node = new Node(ptr.val);
-            ptr2 = node;
-            head2 = node;
-            map.put(ptr, node);
-            ptr = ptr.next;
+        if(head == null)
+            return null;
+
+        HashMap<Node, Node> map = new HashMap<>();
+
+        Node h1 = head;
+        Node h2 = new Node(head.val);
+        Node head2 = h2;
+        map.put(h1, h2);
+
+        h1 = h1.next;
+        while(h1 != null) {
+            Node temp = new Node(h1.val);
+            h2.next = temp;
+            h2 = h2.next;
+            map.put(h1, h2);
+            h1 = h1.next;
         }
 
-        while(ptr != null) {
-            Node node = new Node(ptr.val);
-            ptr2.next = node;
-            map.put(ptr, node);
-            ptr2 = ptr2.next;
-            ptr = ptr.next;
-        }
+        h1 = head;
+        h2 = head2;
 
-        // ptr = head;
-        // ptr2 = head2;
-
-        // while(ptr != null && ptr2 != null) {
-        //     System.out.print(" " + ptr.val + " " + ptr2.val + " " + map.get(ptr).val);
-        //     ptr = ptr.next;
-        //     ptr2 = ptr2.next;
-        // }
-
-        ptr = head;
-
-        while(ptr != null) {
-            
-           map.get(ptr).random = map.get(ptr.random);
-            
-            ptr = ptr.next;
-
+        while(h1 != null) {
+            h2.random = map.get(h1.random);
+            h2 = h2.next;
+            h1 = h1.next;
         }
 
         return head2;
+    
     }
 }
