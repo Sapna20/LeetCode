@@ -10,29 +10,44 @@
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        int carry = 0;
+
         ListNode l3 = new ListNode();
-        ListNode head = l3;
+        ListNode sumList = l3;
+        int pc = 0;
 
-        while(l1 != null || l2 != null) {
-            int a = l1 != null ? l1.val : 0;
-            int b = l2 != null ? l2.val : 0;
-            int num = a + b + carry;
-            carry = num/10;
-            num = num%10;
+        // l1 = reverseList(l1);
+        // l2 = reverseList(l2);
 
-            l3.next = new ListNode(num);
-            
+        while(l1 != null || l2 != null || pc != 0) {
+            int a = l1 == null ? 0 : l1.val;
+            int b = l2 == null ? 0 : l2.val;
+
+            int num = (a + b + pc) % 10;
+            pc =  (a + b + pc) / 10;
+        
+            ListNode temp = new ListNode(num);
+            l3.next = temp;
             l3 = l3.next;
             l1 = l1 != null ? l1.next : l1;
             l2 = l2 != null ? l2.next : l2;
         }
 
-        if(carry > 0) {
-            l3.next = new ListNode(carry);
+        // ListNode ans = reverseList(sumList.next);
+
+        return sumList.next;
+    }
+
+    ListNode reverseList(ListNode head) {
+        ListNode curr = head;
+        ListNode prev = null;
+
+        while(curr != null) {
+            ListNode temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
         }
 
-        return head.next;
-
+        return prev;
     }
 }
