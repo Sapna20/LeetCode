@@ -9,6 +9,36 @@
  * }
  */
 class Solution {
+    public void reorderList(ListNode head) {
+        ListNode temp1 = head;
+        int n = 0;
+        while(temp1 != null) {
+            n++;
+            temp1 = temp1.next;
+        }
+
+        int half_n = (n+1)/2;
+        
+        ListNode temp2 = head;
+        int first_half = 0;
+        while(first_half != half_n) {
+            temp2 = temp2.next;
+            first_half++;
+        }
+
+        ListNode partList = reverseList(temp2);
+
+        ListNode curr = head;
+        ListNode upc = partList;
+
+        while(curr != null) {
+            ListNode temp3 = curr.next;
+            curr.next = upc;
+            upc = temp3;
+            curr = curr.next;
+        }
+    }
+
     private ListNode reverseList(ListNode head) {
         ListNode prev = null;
         ListNode curr = head;
@@ -21,44 +51,5 @@ class Solution {
         }
 
         return prev;
-    }
-    public void reorderList(ListNode head) {
-        int N=0, n=1;
-        ListNode temp = head;
-        while(temp != null) {
-            N++;
-            temp = temp.next;
-        }
-        if(N==1) 
-            return;
-        temp = head;
-        while(n < N/2) {
-            temp = temp.next;
-            n++;
-        }
-
-        ListNode head2 = reverseList(temp.next);
-        temp.next = null;
-        ListNode head1 = head;
-        ListNode dummy = new ListNode();
-        int i=0;
-
-        while(head1 != null && head2 != null) {
-            if(i%2 == 0) {
-                dummy.next = head1;
-                head1 = head1.next;
-            } else {
-                dummy.next = head2;
-                head2 = head2.next;
-            }
-            dummy = dummy.next;
-            i++;
-        }
-
-        if(head1 == null) {
-            dummy.next = head2;
-        } else {
-            dummy.next = head1;
-        }
     }
 }
