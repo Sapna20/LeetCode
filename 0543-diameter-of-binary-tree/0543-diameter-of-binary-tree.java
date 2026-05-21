@@ -15,12 +15,22 @@
  */
 class Solution {
 
+    HashMap<TreeNode, Integer> hMap = new HashMap<TreeNode, Integer>();
+
     private int heightOfBinaryTree(TreeNode root) {
         if(root == null) {
             return 0;
         }
 
-        return 1 + Math.max(heightOfBinaryTree(root.left), heightOfBinaryTree(root.right));
+        if(hMap.containsKey(root)) {
+            return hMap.get(root);
+        }
+
+        int height = 1 + Math.max(heightOfBinaryTree(root.left), heightOfBinaryTree(root.right));
+
+        hMap.put(root, height);
+
+        return height;
         
     }
 
