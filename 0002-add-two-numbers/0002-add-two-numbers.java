@@ -15,9 +15,6 @@ class Solution {
         ListNode sumList = l3;
         int pc = 0;
 
-        // l1 = reverseList(l1);
-        // l2 = reverseList(l2);
-
         while(l1 != null || l2 != null || pc != 0) {
             int a = l1 == null ? 0 : l1.val;
             int b = l2 == null ? 0 : l2.val;
@@ -31,23 +28,6 @@ class Solution {
             l1 = l1 != null ? l1.next : l1;
             l2 = l2 != null ? l2.next : l2;
         }
-
-        // ListNode ans = reverseList(sumList.next);
-
         return sumList.next;
-    }
-
-    ListNode reverseList(ListNode head) {
-        ListNode curr = head;
-        ListNode prev = null;
-
-        while(curr != null) {
-            ListNode temp = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = temp;
-        }
-
-        return prev;
     }
 }
