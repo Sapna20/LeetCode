@@ -15,22 +15,32 @@
  */
 class Solution {
 
-    private int getHeight(TreeNode root) {
-        if(root == null) {
-            return 0;
-        }
+    private HashMap<TreeNode, Integer> map = new HashMap<>();
 
-        return 1 + Math.max(getHeight(root.left), getHeight(root.right));
+    private int heightOfBinaryTree(TreeNode root) {
+        if(root == null)
+            return 0;
+
+        if(map.containsKey(root))
+            return map.get(root);
+
+        int height = 1 + Math.max(heightOfBinaryTree(root.left), heightOfBinaryTree(root.right));
+
+        map.put(root, height);
+
+        return height;
     }
 
     public boolean isBalanced(TreeNode root) {
-        if(root == null) {
+        if (root == null) {
             return true;
         }
 
-        int hL = getHeight(root.left);
-        int hR = getHeight(root.right);
-
-        return Math.abs(hL - hR) < 2 && isBalanced(root.left) && isBalanced(root.right);
+        return Math.abs(
+                heightOfBinaryTree(root.left)
+                - heightOfBinaryTree(root.right)
+            ) <= 1
+            && isBalanced(root.left) 
+            && isBalanced(root.right);
     }
 }
