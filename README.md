@@ -52,6 +52,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0424-longest-repeating-character-replacement](https://github.com/Sapna20/LeetCode/tree/main/0424-longest-repeating-character-replacement/) | Medium |
 | [0567-permutation-in-string](https://github.com/Sapna20/LeetCode/tree/main/0567-permutation-in-string/) | Medium |
 | [0981-time-based-key-value-store](https://github.com/Sapna20/LeetCode/tree/main/0981-time-based-key-value-store/) | Medium |
+| [3120-count-the-number-of-special-characters-i](https://github.com/Sapna20/LeetCode/tree/main/3120-count-the-number-of-special-characters-i/) | Easy |
 ## Sorting
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -74,6 +75,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0567-permutation-in-string](https://github.com/Sapna20/LeetCode/tree/main/0567-permutation-in-string/) | Medium |
 | [0981-time-based-key-value-store](https://github.com/Sapna20/LeetCode/tree/main/0981-time-based-key-value-store/) | Medium |
 | [1871-jump-game-vii](https://github.com/Sapna20/LeetCode/tree/main/1871-jump-game-vii/) | Medium |
+| [3120-count-the-number-of-special-characters-i](https://github.com/Sapna20/LeetCode/tree/main/3120-count-the-number-of-special-characters-i/) | Easy |
 ## Divide and Conquer
 | Problem Name | Difficulty |
 | ------- | ------- |
