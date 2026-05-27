@@ -15,22 +15,25 @@
  */
 class Solution {
 
-    private void traversal(TreeNode root, int currLevel, List<Integer> rightMostNodes) {
-        if(root == null)
+    private List<Integer> ls = new ArrayList<Integer>();
+
+    private void processRightSide(TreeNode root, int height) {
+        if(root == null) 
             return;
-        
-        int newLevel = rightMostNodes.size();
-        if(currLevel == newLevel) {
-            rightMostNodes.add(root.val);
+
+        if(ls.size() == height) {
+            ls.add(root.val);
         }
 
-        traversal(root.right, currLevel+1, rightMostNodes);
-        traversal(root.left, currLevel+1, rightMostNodes);
+        processRightSide(root.right, height+1);
+        processRightSide(root.left, height+1);
     }
 
     public List<Integer> rightSideView(TreeNode root) {
-        List<Integer> ans = new ArrayList<Integer>();
-        traversal(root, 0, ans);
-        return ans;
+        if(root == null) 
+            return ls;
+
+        processRightSide(root, 0);
+        return this.ls;
     }
 }
