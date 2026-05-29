@@ -36,6 +36,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0875-koko-eating-bananas](https://github.com/Sapna20/LeetCode/tree/main/0875-koko-eating-bananas/) | Medium |
 | [1340-jump-game-v](https://github.com/Sapna20/LeetCode/tree/main/1340-jump-game-v/) | Hard |
 | [1752-check-if-array-is-sorted-and-rotated](https://github.com/Sapna20/LeetCode/tree/main/1752-check-if-array-is-sorted-and-rotated/) | Easy |
+| [3300-minimum-element-after-replacement-with-digit-sum](https://github.com/Sapna20/LeetCode/tree/main/3300-minimum-element-after-replacement-with-digit-sum/) | Easy |
 ## Hash Table
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -176,6 +177,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- | ------- |
 | [0002-add-two-numbers](https://github.com/Sapna20/LeetCode/tree/main/0002-add-two-numbers/) | Medium |
 | [0150-evaluate-reverse-polish-notation](https://github.com/Sapna20/LeetCode/tree/main/0150-evaluate-reverse-polish-notation/) | Medium |
+| [3300-minimum-element-after-replacement-with-digit-sum](https://github.com/Sapna20/LeetCode/tree/main/3300-minimum-element-after-replacement-with-digit-sum/) | Easy |
 ## Linked List
 | Problem Name | Difficulty |
 | ------- | ------- |
