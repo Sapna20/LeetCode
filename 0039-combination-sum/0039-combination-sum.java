@@ -1,28 +1,28 @@
 class Solution {
 
-    public void solve(int[] arr, int sum, int i, List<Integer> ls, List<List<Integer>> ans) {
-        if(sum==0) {
-            ans.add(new ArrayList(ls));
-            return;
-        } else if(sum < 0 || i >= arr.length) {
-            return;
+    private List<List<Integer>> solve(int[] candidates, int target, int idx, List<List<Integer>> ansList, List<Integer> currList) {
+        if(idx == candidates.length) {
+            return ansList;
         }
 
-        if(sum - arr[i] >= 0) {
-            ls.add(arr[i]);
-            solve(arr, sum-arr[i], i, ls, ans);
-            ls.remove(ls.size()-1);
-            solve(arr, sum, i+1, ls, ans);
-
+        if(target - candidates[idx] > 0) {
+            currList.add(candidates[idx]);
+            solve(candidates, target - candidates[idx], idx, ansList, currList);
+            currList.remove(currList.size()-1);
+            solve(candidates, target, idx+1, ansList, currList);
+        } else if(target - candidates[idx] == 0) {
+            currList.add(candidates[idx]);
+            ansList.add(new ArrayList<Integer>(currList));
+            currList.remove(currList.size()-1);
+            solve(candidates, target, idx+1, ansList, currList);
         } else {
-            solve(arr, sum, i+1, ls, ans);
+            solve(candidates, target, idx+1, ansList, currList);
         }
+
+       return ansList;
     }
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        List<List<Integer>> ans = new ArrayList<List<Integer>>();
-        List<Integer> ls = new ArrayList<Integer>();
-        solve(candidates, target, 0, ls, ans);
-        return ans;
+        return solve(candidates, target, 0, new ArrayList<List<Integer>>(), new ArrayList<Integer> ());
     }
 }
