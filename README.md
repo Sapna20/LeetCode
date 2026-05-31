@@ -37,6 +37,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0875-koko-eating-bananas](https://github.com/Sapna20/LeetCode/tree/main/0875-koko-eating-bananas/) | Medium |
 | [1340-jump-game-v](https://github.com/Sapna20/LeetCode/tree/main/1340-jump-game-v/) | Hard |
 | [1752-check-if-array-is-sorted-and-rotated](https://github.com/Sapna20/LeetCode/tree/main/1752-check-if-array-is-sorted-and-rotated/) | Easy |
+| [2126-destroying-asteroids](https://github.com/Sapna20/LeetCode/tree/main/2126-destroying-asteroids/) | Medium |
 | [3300-minimum-element-after-replacement-with-digit-sum](https://github.com/Sapna20/LeetCode/tree/main/3300-minimum-element-after-replacement-with-digit-sum/) | Easy |
 ## Hash Table
 | Problem Name | Difficulty |
@@ -66,6 +67,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0242-valid-anagram](https://github.com/Sapna20/LeetCode/tree/main/0242-valid-anagram/) | Easy |
 | [0347-top-k-frequent-elements](https://github.com/Sapna20/LeetCode/tree/main/0347-top-k-frequent-elements/) | Medium |
 | [1340-jump-game-v](https://github.com/Sapna20/LeetCode/tree/main/1340-jump-game-v/) | Hard |
+| [2126-destroying-asteroids](https://github.com/Sapna20/LeetCode/tree/main/2126-destroying-asteroids/) | Medium |
 ## String
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -162,6 +164,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0011-container-with-most-water](https://github.com/Sapna20/LeetCode/tree/main/0011-container-with-most-water/) | Medium |
+| [2126-destroying-asteroids](https://github.com/Sapna20/LeetCode/tree/main/2126-destroying-asteroids/) | Medium |
 ## Monotonic Stack
 | Problem Name | Difficulty |
 | ------- | ------- |
