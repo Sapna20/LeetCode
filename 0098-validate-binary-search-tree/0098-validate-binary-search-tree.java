@@ -15,19 +15,18 @@
  */
 class Solution {
 
-
-    long currNum = Long.MIN_VALUE;
-
-    public boolean isValidBST(TreeNode root) {
-        if(root == null)
+    private boolean isValid(TreeNode root, long leftBound, long rightBound) {
+        if(root == null) 
             return true;
 
-        boolean left = isValidBST(root.left);
-        if(root.val <= currNum)
+        if(!(root.val > leftBound && root.val < rightBound)) {
             return false;
-        currNum = root.val;
-        boolean right = isValidBST(root.right);
+        }
 
-        return left && right;
+        return isValid(root.left, leftBound, root.val) && isValid(root.right, root.val, rightBound);
+    }
+
+    public boolean isValidBST(TreeNode root) {
+        return isValid(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 }
