@@ -1,36 +1,30 @@
 class Solution {
 
-    private void getValidCombinations(int[] candidates, int target, int index, List<Integer> current, List<List<Integer>> validCombinations) {
-        if(index == candidates.length && target != 0) {
-            return;
-        }
-        if(target == 0) {
-            validCombinations.add(new ArrayList<Integer>(current));
-            return;
-        }
-
-        if(target - candidates[index] >= 0) {
-            current.add(candidates[index]);
-            getValidCombinations(candidates, target - candidates[index], index+1, current, validCombinations);
-            current.remove(current.size()-1);
-
-            while(index + 1 < candidates.length && candidates[index] == candidates[index+1]) {
-                index++;
+    private List<List<Integer>> solve(int[] candidates, int target, int idx, List<Integer> ls, List<List<Integer>> ans) {
+        if(idx == candidates.length) {
+            if(target == 0) {
+                ans.add(new ArrayList<Integer>(ls));
             }
-            getValidCombinations(candidates, target, index+1, current, validCombinations);
-
-        } else {
-            getValidCombinations(candidates, target, index+1, current, validCombinations);
+            return ans;
         }
+
+        if(target - candidates[idx] >= 0) {
+            ls.add(candidates[idx]);
+            solve(candidates, target - candidates[idx], idx+1, ls, ans);
+            ls.remove(ls.size()-1);
+            while(idx < candidates.length-1 && candidates[idx] == candidates[idx+1]) {
+                idx++;
+            }
+            solve(candidates, target, idx+1, ls, ans);
+        } else {
+            solve(candidates, target, idx+1, ls, ans);
+        }
+
+        return ans;
     }
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        List<List<Integer>> validCombinations = new ArrayList<List<Integer>>();
-        List<Integer> current = new ArrayList<Integer>();
         Arrays.sort(candidates);
-
-        getValidCombinations(candidates, target, 0, current, validCombinations);
-
-        return validCombinations;
+        return solve(candidates, target, 0, new ArrayList<Integer>(), new ArrayList<List<Integer>>());
     }
 }
