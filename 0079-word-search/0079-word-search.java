@@ -1,26 +1,28 @@
 class Solution {
 
-    private boolean isValid(int m, int n, int i, int j) {
-        return i<m && j<n && i>=0 && j>=0;
+
+    private boolean isValid(char[][] board, String word, int idx, int i, int j, int m, int n, boolean[][] isVisited) {
+        return i < m && i >= 0
+            && j < n && j >= 0
+            && idx < word.length()
+            && !isVisited[i][j]
+            && word.charAt(idx) == board[i][j];
     }
 
-    private boolean isExist(char[][] board, String word, int i, int j, int index, boolean[][] isVisited) {
-        int m = board.length;
-        int n = board[0].length;
-        if(index == word.length()) {
-            return true;
-        }
-
-        if(!isValid(m, n, i, j) || isVisited[i][j] || word.charAt(index) != board[i][j]) {
+    private boolean checkGrid(char[][] board, String word, int idx, int i, int j, int m, int n, boolean[][] isVisited) {
+        if(!isValid(board, word, idx, i, j, m, n, isVisited)) {
             return false;
         }
 
+        if(idx == word.length()-1)
+            return true;
+        
         isVisited[i][j] = true;
 
-        boolean found = isExist(board, word, i+1, j, index+1, isVisited)
-                || isExist(board, word, i-1, j, index+1, isVisited)
-                || isExist(board, word, i, j+1, index+1, isVisited)
-                || isExist(board, word, i, j-1, index+1, isVisited);
+        boolean found = checkGrid(board, word, idx+1, i+1, j, m, n, isVisited) 
+        || checkGrid(board, word, idx+1, i, j+1, m, n, isVisited)
+        || checkGrid(board, word, idx+1, i-1, j, m, n, isVisited)  
+        || checkGrid(board, word, idx+1, i, j-1, m, n, isVisited);   
 
         isVisited[i][j] = false;
 
@@ -30,16 +32,20 @@ class Solution {
     public boolean exist(char[][] board, String word) {
         int m = board.length;
         int n = board[0].length;
+    
         boolean[][] isVisited = new boolean[m][n];
+        boolean found = false;
 
         for(int i=0; i<m; i++) {
             for(int j=0; j<n; j++) {
-                if(!isVisited[i][j] && isExist(board, word, i, j, 0, isVisited)) {
-                    return true;
+                found = found || checkGrid(board, word, 0, i, j, m, n, isVisited);
+                if(found) {
+                    return found;
                 }
             }
         }
-
+        
         return false;
+         
     }
 }
