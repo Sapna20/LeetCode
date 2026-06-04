@@ -23,6 +23,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0049-group-anagrams](https://github.com/Sapna20/LeetCode/tree/main/0049-group-anagrams/) | Medium |
 | [0074-search-a-2d-matrix](https://github.com/Sapna20/LeetCode/tree/main/0074-search-a-2d-matrix/) | Medium |
 | [0078-subsets](https://github.com/Sapna20/LeetCode/tree/main/0078-subsets/) | Medium |
+| [0079-word-search](https://github.com/Sapna20/LeetCode/tree/main/0079-word-search/) | Medium |
 | [0084-largest-rectangle-in-histogram](https://github.com/Sapna20/LeetCode/tree/main/0084-largest-rectangle-in-histogram/) | Hard |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/Sapna20/LeetCode/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
 | [0128-longest-consecutive-sequence](https://github.com/Sapna20/LeetCode/tree/main/0128-longest-consecutive-sequence/) | Medium |
@@ -81,6 +82,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0020-valid-parentheses](https://github.com/Sapna20/LeetCode/tree/main/0020-valid-parentheses/) | Easy |
 | [0049-group-anagrams](https://github.com/Sapna20/LeetCode/tree/main/0049-group-anagrams/) | Medium |
 | [0076-minimum-window-substring](https://github.com/Sapna20/LeetCode/tree/main/0076-minimum-window-substring/) | Hard |
+| [0079-word-search](https://github.com/Sapna20/LeetCode/tree/main/0079-word-search/) | Medium |
 | [0125-valid-palindrome](https://github.com/Sapna20/LeetCode/tree/main/0125-valid-palindrome/) | Easy |
 | [0242-valid-anagram](https://github.com/Sapna20/LeetCode/tree/main/0242-valid-anagram/) | Easy |
 | [0424-longest-repeating-character-replacement](https://github.com/Sapna20/LeetCode/tree/main/0424-longest-repeating-character-replacement/) | Medium |
@@ -164,6 +166,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- | ------- |
 | [0036-valid-sudoku](https://github.com/Sapna20/LeetCode/tree/main/0036-valid-sudoku/) | Medium |
 | [0074-search-a-2d-matrix](https://github.com/Sapna20/LeetCode/tree/main/0074-search-a-2d-matrix/) | Medium |
+| [0079-word-search](https://github.com/Sapna20/LeetCode/tree/main/0079-word-search/) | Medium |
 ## Union-Find
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -226,6 +229,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Depth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0079-word-search](https://github.com/Sapna20/LeetCode/tree/main/0079-word-search/) | Medium |
 | [0098-validate-binary-search-tree](https://github.com/Sapna20/LeetCode/tree/main/0098-validate-binary-search-tree/) | Medium |
 | [0100-same-tree](https://github.com/Sapna20/LeetCode/tree/main/0100-same-tree/) | Easy |
 | [0104-maximum-depth-of-binary-tree](https://github.com/Sapna20/LeetCode/tree/main/0104-maximum-depth-of-binary-tree/) | Easy |
@@ -295,6 +299,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0039-combination-sum](https://github.com/Sapna20/LeetCode/tree/main/0039-combination-sum/) | Medium |
 | [0040-combination-sum-ii](https://github.com/Sapna20/LeetCode/tree/main/0040-combination-sum-ii/) | Medium |
 | [0078-subsets](https://github.com/Sapna20/LeetCode/tree/main/0078-subsets/) | Medium |
+| [0079-word-search](https://github.com/Sapna20/LeetCode/tree/main/0079-word-search/) | Medium |
 ## Binary Search Tree
 | Problem Name | Difficulty |
 | ------- | ------- |
