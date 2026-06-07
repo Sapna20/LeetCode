@@ -1,29 +1,25 @@
 class Solution {
 
-    private List<String> generate(String str, List<String> ls, int open, int close) {
-        if(open == 0 && close == 0) 
-        {
-            ls.add(str);
-            return ls;
+    private List<String> solve(int open, int close, ArrayList<String> ans, String currStr) {
+        if(close == 0) {
+            ans.add(currStr);
+            return ans;
         }
 
         if(open == close) {
-            ls = generate(str + '(', ls, open-1, close);
-        } else if (open == 0) {
-            ls = generate(str + ')', ls, open, close-1);
+            solve(open-1, close, ans, currStr + '(');
         } else {
-            ls = generate(str + '(', ls, open-1, close);
-            ls = generate(str + ')', ls, open, close-1);
+            if(open > 0) {
+                solve(open-1, close, ans, currStr + '(');
+            }
+            solve(open, close-1, ans, currStr + ')');
         }
 
-        return ls;
+        return ans;
+
     }
 
     public List<String> generateParenthesis(int n) {
-        
-        String str = "";
-        List<String> ls = new ArrayList<String> ();
-
-        return generate(str, ls, n, n);
+        return solve(n, n, new ArrayList<String>(), "");
     }
 }
