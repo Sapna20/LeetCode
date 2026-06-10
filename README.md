@@ -40,6 +40,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0704-binary-search](https://github.com/Sapna20/LeetCode/tree/main/0704-binary-search/) | Easy |
 | [0739-daily-temperatures](https://github.com/Sapna20/LeetCode/tree/main/0739-daily-temperatures/) | Medium |
 | [0875-koko-eating-bananas](https://github.com/Sapna20/LeetCode/tree/main/0875-koko-eating-bananas/) | Medium |
+| [0973-k-closest-points-to-origin](https://github.com/Sapna20/LeetCode/tree/main/0973-k-closest-points-to-origin/) | Medium |
 | [1046-last-stone-weight](https://github.com/Sapna20/LeetCode/tree/main/1046-last-stone-weight/) | Easy |
 | [1340-jump-game-v](https://github.com/Sapna20/LeetCode/tree/main/1340-jump-game-v/) | Hard |
 | [1752-check-if-array-is-sorted-and-rotated](https://github.com/Sapna20/LeetCode/tree/main/1752-check-if-array-is-sorted-and-rotated/) | Easy |
@@ -75,6 +76,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0217-contains-duplicate](https://github.com/Sapna20/LeetCode/tree/main/0217-contains-duplicate/) | Easy |
 | [0242-valid-anagram](https://github.com/Sapna20/LeetCode/tree/main/0242-valid-anagram/) | Easy |
 | [0347-top-k-frequent-elements](https://github.com/Sapna20/LeetCode/tree/main/0347-top-k-frequent-elements/) | Medium |
+| [0973-k-closest-points-to-origin](https://github.com/Sapna20/LeetCode/tree/main/0973-k-closest-points-to-origin/) | Medium |
 | [1340-jump-game-v](https://github.com/Sapna20/LeetCode/tree/main/1340-jump-game-v/) | Hard |
 | [2126-destroying-asteroids](https://github.com/Sapna20/LeetCode/tree/main/2126-destroying-asteroids/) | Medium |
 | [2144-minimum-cost-of-buying-candies-with-discount](https://github.com/Sapna20/LeetCode/tree/main/2144-minimum-cost-of-buying-candies-with-discount/) | Easy |
@@ -101,12 +103,14 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0347-top-k-frequent-elements](https://github.com/Sapna20/LeetCode/tree/main/0347-top-k-frequent-elements/) | Medium |
+| [0973-k-closest-points-to-origin](https://github.com/Sapna20/LeetCode/tree/main/0973-k-closest-points-to-origin/) | Medium |
 ## Heap (Priority Queue)
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0239-sliding-window-maximum](https://github.com/Sapna20/LeetCode/tree/main/0239-sliding-window-maximum/) | Hard |
 | [0347-top-k-frequent-elements](https://github.com/Sapna20/LeetCode/tree/main/0347-top-k-frequent-elements/) | Medium |
 | [0703-kth-largest-element-in-a-stream](https://github.com/Sapna20/LeetCode/tree/main/0703-kth-largest-element-in-a-stream/) | Easy |
+| [0973-k-closest-points-to-origin](https://github.com/Sapna20/LeetCode/tree/main/0973-k-closest-points-to-origin/) | Medium |
 | [1046-last-stone-weight](https://github.com/Sapna20/LeetCode/tree/main/1046-last-stone-weight/) | Easy |
 ## Bucket Sort
 | Problem Name | Difficulty |
@@ -120,6 +124,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0347-top-k-frequent-elements](https://github.com/Sapna20/LeetCode/tree/main/0347-top-k-frequent-elements/) | Medium |
+| [0973-k-closest-points-to-origin](https://github.com/Sapna20/LeetCode/tree/main/0973-k-closest-points-to-origin/) | Medium |
 ## Prefix Sum
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -204,6 +209,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- | ------- |
 | [0002-add-two-numbers](https://github.com/Sapna20/LeetCode/tree/main/0002-add-two-numbers/) | Medium |
 | [0150-evaluate-reverse-polish-notation](https://github.com/Sapna20/LeetCode/tree/main/0150-evaluate-reverse-polish-notation/) | Medium |
+| [0973-k-closest-points-to-origin](https://github.com/Sapna20/LeetCode/tree/main/0973-k-closest-points-to-origin/) | Medium |
 | [3300-minimum-element-after-replacement-with-digit-sum](https://github.com/Sapna20/LeetCode/tree/main/3300-minimum-element-after-replacement-with-digit-sum/) | Easy |
 ## Linked List
 | Problem Name | Difficulty |
@@ -327,4 +333,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0703-kth-largest-element-in-a-stream](https://github.com/Sapna20/LeetCode/tree/main/0703-kth-largest-element-in-a-stream/) | Easy |
+## Geometry
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0973-k-closest-points-to-origin](https://github.com/Sapna20/LeetCode/tree/main/0973-k-closest-points-to-origin/) | Medium |
 <!---LeetCode Topics End-->
