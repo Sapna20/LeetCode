@@ -30,5 +30,7 @@ class Solution {
             solve(nums, 0, n-2, dp_A),
             solve(nums, 1, n-1, dp_B)
             );
+
+        // revise with bottom up 
     }
 }
