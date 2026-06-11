@@ -1,42 +1,37 @@
 class Solution {
 
-    private boolean solve(int[] nums, int target) {
-        int n = nums.length;
-        boolean[][] dp = new boolean[n+1][target+1];
+    private boolean solve(int[] nums, int sum, int idx, Boolean[][] dp) {
+        if(sum == 0) 
+            return true;
 
-        for(int i=0; i<=n; i++) {
-            for(int j=0; j<=target; j++) {
-                if(i==0)
-                    dp[i][j] = false;
+        if(sum < 0 || idx < 0) 
+            return false;
 
-                if(j==0)
-                    dp[i][j] = true;
-            }
+        if(dp[idx][sum] != null) {
+            return dp[idx][sum];
         }
 
-        for(int i=1; i<=n; i++) {
-            for(int j=1; j<=target; j++) {
-                if(j-nums[i-1] >= 0) {
-                    dp[i][j] = dp[i-1][j-nums[i-1]] || dp[i-1][j];
-                } else {
-                    dp[i][j] = dp[i-1][j];
-                }
-            }
+        if(sum - nums[idx] >= 0) {
+            dp[idx][sum] = solve(nums, sum-nums[idx], idx-1, dp) || solve(nums, sum, idx-1, dp);
+            return dp[idx][sum];
         }
 
-        return dp[n][target];
+        dp[idx][sum] = solve(nums, sum, idx-1, dp);
+        return dp[idx][sum];
     }
 
     public boolean canPartition(int[] nums) {
         int sum = 0;
+        int n = nums.length;
         for(int x : nums) {
             sum += x;
         }
 
         if(sum % 2 != 0)
-            return false; 
+            return false;
 
-        return solve(nums, sum/2);
-
+        Boolean[][] dp = new Boolean[n][sum+1];
+        
+        return solve(nums, sum/2, n-1, dp);
     }
 }
