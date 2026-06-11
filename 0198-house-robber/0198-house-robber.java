@@ -21,5 +21,7 @@ class Solution {
         Integer[] dp = new Integer[n];
 
         return solve(nums, n-1, dp);
+
+        // write bottom up during revision
     }
 }
