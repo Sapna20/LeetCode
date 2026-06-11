@@ -2,25 +2,24 @@ class Solution {
     public String longestPalindrome(String s) {
         int n = s.length();
         boolean[][] dp = new boolean[n][n];
-        String ans = "";
+        int start = 0, end = 0;
 
-        for(int k=n-1; k>=0; k--) {
-            for(int i=0, j=n-1-k; i<=k && j<=n-1; i++, j++) {
-                
-                if(i == j) {
+        for(int k=0; k<n; k++) {
+            for(int i=0, j=k; i<n-k && j<n; j++, i++) {
+                if(k == 0) {
                     dp[i][j] = true;
-                } else if( i+1 == j) {
-                    dp[i][j] = s.charAt(i) == s.charAt(j);
+                } else if(k == 1 && s.charAt(i) == s.charAt(j)) {
+                    dp[i][j] = true;
                 } else {
-                    dp[i][j] = s.charAt(i) == s.charAt(j) && dp[i+1][j-1];
+                    dp[i][j] = dp[i+1][j-1] && s.charAt(i) == s.charAt(j);
                 }
-
                 if(dp[i][j]) {
-                    ans = s.substring(i, j+1);
+                    start = i;
+                    end = j;
                 }
             }
         }
 
-        return ans;
+        return s.substring(start, end+1);
     }
 }
