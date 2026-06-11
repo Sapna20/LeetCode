@@ -1,61 +1,34 @@
 class Solution {
 
-    private int solveRecursive(int[] nums, int start, int end) {
-        if(start > end) {
+    private int solve(int[] nums, int start, int n, Integer[] dp) {
+        if(n < start) {
             return 0;
         }
 
-        return Math.max(nums[start] + solveRecursive(nums, start+2, end), solveRecursive(nums, start+1, end));
-    }
-
-    private int solveMemo(int[] nums, int start, int end, int dp[]) {
-        if(start > end) {
-            return 0;
+        if(dp[n] != null) {
+            return dp[n];
         }
 
-        if(dp[start] != -1) 
-            return dp[start];
+        dp[n] = Math.max(
+            nums[n] + solve(nums, start, n-2, dp),
+            solve(nums, start, n-1, dp)
+            );
         
-        dp[start] = Math.max(nums[start] + solveMemo(nums, start+2, end, dp),
-                         solveMemo(nums, start+1, end, dp));
-        
-        return dp[start];
-    }
-
-    private void refreshDP(int[] dp) {
-        for(int i=0; i<dp.length; i++)
-            dp[i] = -1;
-    }
-
-    private int solveBottomUp(int[] nums, int start, int n) {
-        int[] dp = new int[n+2];
-        
-        for(int i=n-1; i>=start; i--) 
-            dp[i] = Math.max(nums[i] + dp[i+2], dp[i+1]);
-        
-        return dp[start];
+        return dp[n];
     }
 
     public int rob(int[] nums) {
-       
-        // return Math.max( nums[0],
-        // Math.max(solveRecursive(nums, 0, nums.length-2),
-        //             solveRecursive(nums, 1, nums.length-1))
-        // );
+        int n = nums.length;
 
-        // int[] dp = new int[nums.length];
-        // refreshDP(dp);
+        if(n == 1) {
+            return nums[0];
+        }
+        Integer[] dp_A = new Integer[n];
+        Integer[] dp_B = new Integer[n];
         
-        // int a = solveMemo(nums, 0, nums.length-2, dp);
-        // refreshDP(dp);
-        // int b = solveMemo(nums, 1, nums.length-1, dp);
-
-        // return Math.max(nums[0], Math.max(a, b));
-
-        int a = solveBottomUp(nums, 0, nums.length-1);
-        int b = solveBottomUp(nums, 1, nums.length);
-
-        return Math.max(nums[0], Math.max(a, b));
-
+        return Math.max(
+            solve(nums, 0, n-2, dp_A),
+            solve(nums, 1, n-1, dp_B)
+            );
     }
 }
