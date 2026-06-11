@@ -21,5 +21,7 @@ class Solution {
             solve(cost, n-1, dp), 
             solve(cost, n-2, dp)
             );
+
+        // need to write bottom up during revision
     }
 }
