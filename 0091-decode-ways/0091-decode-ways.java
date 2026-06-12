@@ -1,43 +1,37 @@
 class Solution {
 
-    private int solveRecursive(String s, int index, int[] dp) {
-        if (index < 0) {
+    private int solve(String s, int idx, Integer[] dp) {
+        if(idx == s.length()) {
             return 1;
         }
 
-        if(dp[index] != -1) 
-            return dp[index];
-
-        int a=0, b=0;
-        int num; 
-
-        if(index - 1 >= 0) {
-            num = Integer.parseInt(s.substring(index-1, index+1));
-        } else {
-            num = Integer.parseInt(s.substring(index, index+1));
+        if(dp[idx] != null) {
+            return dp[idx];
         }
 
-        if(num % 10 > 0) {
-            a = solveRecursive(s, index-1, dp);
+        if(s.charAt(idx) == '0') {
+            return 0;
         }
-        if(num >= 10 && num <= 26)
-        {
-            b = solveRecursive(s, index-2, dp);
-        }
+            
+        int total = solve(s, idx+1, dp);
 
-        dp[index] = a+b;
+        if(idx+1 < s.length()) {
+            char tens = s.charAt(idx);
+            char ones = s.charAt(idx+1);
+            if(tens > '2') {
+                total += 0;
+            } else if((tens == '2' && ones <= '6') || tens < '2') {
+                total += solve(s, idx+2, dp);
+            }
+        } 
+
+        dp[idx] = total;
         
-        return dp[index];
+        return total;
     }
 
     public int numDecodings(String s) {
-        int n = s.length();
-
-        int[] dp = new int[n]; 
-
-        for(int i=0; i<n; i++) 
-            dp[i] = -1;
-
-        return solveRecursive(s, n-1, dp);
+        Integer[] dp = new Integer[s.length()];
+        return solve(s, 0, dp);
     }
 }
