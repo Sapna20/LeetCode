@@ -32,5 +32,7 @@ class Solution {
 
         System.out.println(Integer.MAX_VALUE);
         return count > 10000 ? -1 : count;
+
+        // during revision write bottom up approach
     }
 }
