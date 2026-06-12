@@ -10,6 +10,7 @@ class Solution {
         }
 
         if(s.charAt(idx) == '0') {
+            dp[idx] = 0;
             return 0;
         }
             
@@ -18,9 +19,7 @@ class Solution {
         if(idx+1 < s.length()) {
             char tens = s.charAt(idx);
             char ones = s.charAt(idx+1);
-            if(tens > '2') {
-                total += 0;
-            } else if((tens == '2' && ones <= '6') || tens < '2') {
+            if((tens == '2' && ones <= '6') || tens < '2') {
                 total += solve(s, idx+2, dp);
             }
         } 
