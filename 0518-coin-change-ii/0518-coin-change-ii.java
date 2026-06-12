@@ -1,23 +1,33 @@
 class Solution {
+
+    private int solve(int amount, int[] coins, int idx, Integer[][] dp) {
+
+        if(amount == 0) {
+            dp[idx][amount] = 1;
+            return 1;
+        }
+
+        if(idx < 0) {
+            return 0;
+        }
+
+        if(dp[idx][amount] != null) {
+            return dp[idx][amount];
+        }
+
+        if(amount - coins[idx] >= 0) {
+            dp[idx][amount] = solve(amount - coins[idx], coins, idx, dp) + solve(amount, coins, idx-1, dp);
+        } else {
+            dp[idx][amount] = solve(amount, coins, idx-1, dp);
+        }
+
+        return dp[idx][amount];
+    }
+
     public int change(int amount, int[] coins) {
         int n = coins.length;
-        int m = amount;
-        int[][] dp = new int[m+1][n+1];
-
-        for(int j=1; j<=n; j++) {
-            dp[0][j] = 1;
-        }
-
-        for(int i=1; i<=m; i++) {
-            for(int j=1; j<=n; j++) {
-                if(i-coins[j-1] >= 0) {
-                    dp[i][j] = dp[i-coins[j-1]][j] + dp[i][j-1];
-                } else {
-                    dp[i][j] = dp[i][j-1];
-                }
-            }
-        }
-
-        return dp[m][n];
+        Integer[][] dp = new Integer[n][amount+1];
+        
+        return solve(amount, coins, coins.length-1, dp);
     }
 }
