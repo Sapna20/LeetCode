@@ -1,22 +1,35 @@
 class Solution {
-    public int lengthOfLIS(int[] nums) {
-        int n = nums.length;
-        int[] lis = new int[n];
-        int ans = 1;
-        for(int i=0; i<n; i++) {
-            lis[i] = 1;
+
+    private int solve(int[] nums, int idx, Integer lastNumIdx, Integer[][] dp) {
+        if(idx == nums.length) {
+            return 0;
         }
 
-        for(int i=1; i<n; i++) {
-            for(int j=0; j<i; j++) {
-                if(nums[j] < nums[i] && lis[j] + 1 > lis[i]) {
-                    lis[i] = lis[j] + 1;
-                    if(lis[i] > ans) {
-                        ans = lis[i];
-                    }
-                }
-            }
+        if( lastNumIdx != null && dp[idx][lastNumIdx] != null) {
+            return dp[idx][lastNumIdx];
         }
-        return ans;
+
+        int curr_max = 0;
+        if(lastNumIdx == null || nums[lastNumIdx] < nums[idx]) {
+            curr_max = Math.max(
+                1+solve(nums, idx+1, idx, dp),
+                solve(nums, idx+1, lastNumIdx, dp) 
+                );
+            
+        } else {
+            curr_max = solve(nums, idx+1, lastNumIdx, dp);
+        }
+
+        if( lastNumIdx != null) {
+            dp[idx][lastNumIdx] = curr_max;
+        }
+
+        return curr_max;
+    }
+
+    public int lengthOfLIS(int[] nums) {
+        int n = nums.length;
+        Integer[][] dp = new Integer[n][n];
+        return solve(nums, 0, null, dp);
     }
 }
