@@ -1,27 +1,30 @@
 class Solution {
 
+    private boolean isValidMove(int i, int j, int m, int n) {
+        return i <= m && i>=0 && j<=n && j>=0;
+    }
+
+    private int solve(int i, int j, int m, int n, Integer[][] dp) {
+
+        if(!isValidMove(i, j, m, n)) {
+            return 0;
+        }
+
+        if(dp[i][j] != null)
+            return dp[i][j];
+
+
+        if(i == m && j == n) {
+            return 1;
+        }
+
+        dp[i][j] = solve(i+1, j, m, n, dp) + solve(i, j+1, m, n, dp);
+
+        return dp[i][j];
+    }
+
     public int uniquePaths(int m, int n) {
-        int[][] dp = new int[m+1][n+1];
-
-        for(int i=0; i<m+1; i++) {
-            dp[i][0] = 0;
-            if(i>=1) {
-                dp[i][1] = 1;
-            }
-        }
-        for(int j=0; j<n+1; j++) {
-            dp[0][j] = 0;
-            if(j>=1) {
-                dp[1][j] = 1;
-            }
-        }
-
-        for(int i=2; i<m+1; i++) {
-            for(int j=2; j<n+1; j++) {
-                dp[i][j] = dp[i-1][j] + dp[i][j-1];
-            }
-        }
-
-        return dp[m][n];
+        Integer[][] dp = new Integer[m][n];
+        return solve(0, 0, m-1, n-1, dp);
     }
 }
