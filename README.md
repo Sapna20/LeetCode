@@ -107,6 +107,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0567-permutation-in-string](https://github.com/Sapna20/LeetCode/tree/main/0567-permutation-in-string/) | Medium |
 | [0647-palindromic-substrings](https://github.com/Sapna20/LeetCode/tree/main/0647-palindromic-substrings/) | Medium |
 | [0981-time-based-key-value-store](https://github.com/Sapna20/LeetCode/tree/main/0981-time-based-key-value-store/) | Medium |
+| [1143-longest-common-subsequence](https://github.com/Sapna20/LeetCode/tree/main/1143-longest-common-subsequence/) | Medium |
 | [1871-jump-game-vii](https://github.com/Sapna20/LeetCode/tree/main/1871-jump-game-vii/) | Medium |
 | [3120-count-the-number-of-special-characters-i](https://github.com/Sapna20/LeetCode/tree/main/3120-count-the-number-of-special-characters-i/) | Easy |
 | [3121-count-the-number-of-special-characters-ii](https://github.com/Sapna20/LeetCode/tree/main/3121-count-the-number-of-special-characters-ii/) | Medium |
@@ -201,6 +202,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0416-partition-equal-subset-sum](https://github.com/Sapna20/LeetCode/tree/main/0416-partition-equal-subset-sum/) | Medium |
 | [0647-palindromic-substrings](https://github.com/Sapna20/LeetCode/tree/main/0647-palindromic-substrings/) | Medium |
 | [0746-min-cost-climbing-stairs](https://github.com/Sapna20/LeetCode/tree/main/0746-min-cost-climbing-stairs/) | Easy |
+| [1143-longest-common-subsequence](https://github.com/Sapna20/LeetCode/tree/main/1143-longest-common-subsequence/) | Medium |
 | [1340-jump-game-v](https://github.com/Sapna20/LeetCode/tree/main/1340-jump-game-v/) | Hard |
 | [1871-jump-game-vii](https://github.com/Sapna20/LeetCode/tree/main/1871-jump-game-vii/) | Medium |
 ## Matrix
