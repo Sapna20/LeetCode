@@ -8,7 +8,7 @@ class Solution {
 
     private boolean isValid(char[][] board, int row, int col, int n) {
         // check vertically
-        for(int i=0; i<n; i++) {
+        for(int i=0; i<row; i++) {
             if(board[i][col] == 'Q') 
                 return false;
         }
@@ -19,23 +19,12 @@ class Solution {
                 return false;
         }
 
-        // check diagonal source to bottom-right corner
-        for(int i=row, j=col; i<n && j<n; i++, j++) {
-            if(board[i][j] == 'Q')
-                return false;
-        }
-
         // check diagonal source to top-right corner
         for(int i=row, j=col; i>=0 && j<n; i--, j++) {
             if(board[i][j] == 'Q')
                 return false;
         }
 
-        // check diagonal source to bottom-left corner
-        for(int i=row, j=col; i<n && j>=0; i++, j--) {
-            if(board[i][j] == 'Q')
-                return false;
-        }
 
         return true;
     }
@@ -51,6 +40,7 @@ class Solution {
                 ls.add(str);
             }
             res.add(ls);
+            return;
         }
 
         for(int col=0; col<n; col++) {
