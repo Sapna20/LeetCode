@@ -8,7 +8,7 @@ class Solution {
             int adj = graph[node][i];
             if(!visited[adj]) {
                 flag[adj] = !flag[node];
-                ans = ans & solve(graph, adj, visited, flag);
+                ans = ans && solve(graph, adj, visited, flag);
                 if(!ans) {
                     return false;
                 }
@@ -29,7 +29,7 @@ class Solution {
         for(int i=0; i<n; i++) {
             if(!visited[i]) {
                 flag[i] = true;
-                ans = ans & solve(graph, i, visited, flag); 
+                ans = ans && solve(graph, i, visited, flag); 
             }
         }
         
