@@ -2,8 +2,8 @@ class Solution {
 
     private boolean solve(int[][] graph, int node, boolean[] visited, boolean[] flag) {
         visited[node] = true;
-        System.out.println(node + " " + visited[node] + " " + flag[node]);
         boolean ans = true;
+        
         for(int i=0; i<graph[node].length; i++) {
             int adj = graph[node][i];
             if(!visited[adj]) {
