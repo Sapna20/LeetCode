@@ -32,6 +32,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/Sapna20/LeetCode/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
 | [0128-longest-consecutive-sequence](https://github.com/Sapna20/LeetCode/tree/main/0128-longest-consecutive-sequence/) | Medium |
 | [0130-surrounded-regions](https://github.com/Sapna20/LeetCode/tree/main/0130-surrounded-regions/) | Medium |
+| [0136-single-number](https://github.com/Sapna20/LeetCode/tree/main/0136-single-number/) | Easy |
 | [0150-evaluate-reverse-polish-notation](https://github.com/Sapna20/LeetCode/tree/main/0150-evaluate-reverse-polish-notation/) | Medium |
 | [0152-maximum-product-subarray](https://github.com/Sapna20/LeetCode/tree/main/0152-maximum-product-subarray/) | Medium |
 | [0153-find-minimum-in-rotated-sorted-array](https://github.com/Sapna20/LeetCode/tree/main/0153-find-minimum-in-rotated-sorted-array/) | Medium |
@@ -390,6 +391,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | ------- | ------- |
 | [0078-subsets](https://github.com/Sapna20/LeetCode/tree/main/0078-subsets/) | Medium |
 | [0090-subsets-ii](https://github.com/Sapna20/LeetCode/tree/main/0090-subsets-ii/) | Medium |
+| [0136-single-number](https://github.com/Sapna20/LeetCode/tree/main/0136-single-number/) | Easy |
 | [0287-find-the-duplicate-number](https://github.com/Sapna20/LeetCode/tree/main/0287-find-the-duplicate-number/) | Medium |
 ## Backtracking
 | Problem Name | Difficulty |
