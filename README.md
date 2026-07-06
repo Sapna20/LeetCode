@@ -129,6 +129,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Divide and Conquer
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0191-number-of-1-bits](https://github.com/Sapna20/LeetCode/tree/main/0191-number-of-1-bits/) | Easy |
 | [0215-kth-largest-element-in-an-array](https://github.com/Sapna20/LeetCode/tree/main/0215-kth-largest-element-in-an-array/) | Medium |
 | [0347-top-k-frequent-elements](https://github.com/Sapna20/LeetCode/tree/main/0347-top-k-frequent-elements/) | Medium |
 | [0973-k-closest-points-to-origin](https://github.com/Sapna20/LeetCode/tree/main/0973-k-closest-points-to-origin/) | Medium |
@@ -392,6 +393,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0078-subsets](https://github.com/Sapna20/LeetCode/tree/main/0078-subsets/) | Medium |
 | [0090-subsets-ii](https://github.com/Sapna20/LeetCode/tree/main/0090-subsets-ii/) | Medium |
 | [0136-single-number](https://github.com/Sapna20/LeetCode/tree/main/0136-single-number/) | Easy |
+| [0191-number-of-1-bits](https://github.com/Sapna20/LeetCode/tree/main/0191-number-of-1-bits/) | Easy |
 | [0287-find-the-duplicate-number](https://github.com/Sapna20/LeetCode/tree/main/0287-find-the-duplicate-number/) | Medium |
 ## Backtracking
 | Problem Name | Difficulty |
