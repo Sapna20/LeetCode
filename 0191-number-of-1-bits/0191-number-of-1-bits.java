@@ -1,13 +1,12 @@
-public class Solution {
-    // you need to treat n as an unsigned value
+class Solution {
     public int hammingWeight(int n) {
-        int ans = 0;
-        for(int i=0; i<32; i++) {
-            if((n & 1) == 1) {
-                ans++;
+        int total = 0;
+        while(n != 0) {
+            if((n & 1) != 0) {
+                total++;
             }
             n = n>>1;
         }
-        return ans;
+        return total;
     }
 }
