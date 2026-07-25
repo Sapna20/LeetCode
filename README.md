@@ -64,6 +64,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [1020-number-of-enclaves](https://github.com/Sapna20/LeetCode/tree/main/1020-number-of-enclaves/) | Medium |
 | [1046-last-stone-weight](https://github.com/Sapna20/LeetCode/tree/main/1046-last-stone-weight/) | Easy |
 | [1340-jump-game-v](https://github.com/Sapna20/LeetCode/tree/main/1340-jump-game-v/) | Hard |
+| [1559-detect-cycles-in-2d-grid](https://github.com/Sapna20/LeetCode/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
 | [1752-check-if-array-is-sorted-and-rotated](https://github.com/Sapna20/LeetCode/tree/main/1752-check-if-array-is-sorted-and-rotated/) | Easy |
 | [2126-destroying-asteroids](https://github.com/Sapna20/LeetCode/tree/main/2126-destroying-asteroids/) | Medium |
 | [2144-minimum-cost-of-buying-candies-with-discount](https://github.com/Sapna20/LeetCode/tree/main/2144-minimum-cost-of-buying-candies-with-discount/) | Easy |
@@ -246,6 +247,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0695-max-area-of-island](https://github.com/Sapna20/LeetCode/tree/main/0695-max-area-of-island/) | Medium |
 | [0994-rotting-oranges](https://github.com/Sapna20/LeetCode/tree/main/0994-rotting-oranges/) | Medium |
 | [1020-number-of-enclaves](https://github.com/Sapna20/LeetCode/tree/main/1020-number-of-enclaves/) | Medium |
+| [1559-detect-cycles-in-2d-grid](https://github.com/Sapna20/LeetCode/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
 ## Union-Find
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -255,6 +257,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0695-max-area-of-island](https://github.com/Sapna20/LeetCode/tree/main/0695-max-area-of-island/) | Medium |
 | [0785-is-graph-bipartite](https://github.com/Sapna20/LeetCode/tree/main/0785-is-graph-bipartite/) | Medium |
 | [1020-number-of-enclaves](https://github.com/Sapna20/LeetCode/tree/main/1020-number-of-enclaves/) | Medium |
+| [1559-detect-cycles-in-2d-grid](https://github.com/Sapna20/LeetCode/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
 ## Greedy
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -336,6 +339,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0785-is-graph-bipartite](https://github.com/Sapna20/LeetCode/tree/main/0785-is-graph-bipartite/) | Medium |
 | [1020-number-of-enclaves](https://github.com/Sapna20/LeetCode/tree/main/1020-number-of-enclaves/) | Medium |
 | [1448-count-good-nodes-in-binary-tree](https://github.com/Sapna20/LeetCode/tree/main/1448-count-good-nodes-in-binary-tree/) | Medium |
+| [1559-detect-cycles-in-2d-grid](https://github.com/Sapna20/LeetCode/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
 ## Breadth-First Search
 | Problem Name | Difficulty |
 | ------- | ------- |
@@ -353,6 +357,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0994-rotting-oranges](https://github.com/Sapna20/LeetCode/tree/main/0994-rotting-oranges/) | Medium |
 | [1020-number-of-enclaves](https://github.com/Sapna20/LeetCode/tree/main/1020-number-of-enclaves/) | Medium |
 | [1448-count-good-nodes-in-binary-tree](https://github.com/Sapna20/LeetCode/tree/main/1448-count-good-nodes-in-binary-tree/) | Medium |
+| [1559-detect-cycles-in-2d-grid](https://github.com/Sapna20/LeetCode/tree/main/1559-detect-cycles-in-2d-grid/) | Medium |
 ## Binary Tree
 | Problem Name | Difficulty |
 | ------- | ------- |
