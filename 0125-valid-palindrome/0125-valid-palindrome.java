@@ -1,28 +1,34 @@
 class Solution {
 
-    private boolean isAlphaNumeric(char c) {
-        return (c <= 'z' && c >= 'a') || (c <= '9' && c>= '0');
+    boolean isValidChar(char ch) {
+        return (ch >= 'a' && ch <= 'z') 
+                || (ch >= '0' && ch <= '9');
     }
 
     public boolean isPalindrome(String s) {
-        int n = s.length();
-        int i=0;
-        int j=n-1;
+        int left=0;
+        int right=s.length()-1;
+        s = s.toLowerCase();
+        while(left < right) {
+            char leftChar = s.charAt(left);
+            char rightChar = s.charAt(right);
 
-        String ls = s.toLowerCase();
-
-        while(i<=j) {
-            if(i<n && !isAlphaNumeric(ls.charAt(i))) {
-                i++; continue;
-            }
-            if(j>=0 && !isAlphaNumeric(ls.charAt(j))) {
-                j--; continue;
+            if(!isValidChar(leftChar)) {
+                left++;
+                continue;
             }
 
-            if(ls.charAt(i) != ls.charAt(j))
+            if(!isValidChar(rightChar)) {
+                right--;
+                continue;
+            }
+
+            if(leftChar != rightChar) {
                 return false;
+            }
 
-            i++; j--;
+            left++;
+            right--;
         }
 
         return true;
