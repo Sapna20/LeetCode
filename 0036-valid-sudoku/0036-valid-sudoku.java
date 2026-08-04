@@ -1,44 +1,41 @@
 class Solution {
     public boolean isValidSudoku(char[][] board) {
-        List<Set<Character>> rows = new ArrayList<Set<Character>>();
-        List<Set<Character>> cols = new ArrayList<Set<Character>>();
-        List<List<Set<Character>>> boxes = new ArrayList<List<Set<Character>>>();
+        Set<Character>[] rows = new Set[9];
+        Set<Character>[] cols = new Set[9];
+        Set<Character>[][] grid = new Set[3][3];
 
         for(int i=0; i<9; i++) {
-            Set<Character> row = new HashSet<Character>();
-            Set<Character> col = new HashSet<Character>();
-            rows.add(row);
-            cols.add(col);
+            rows[i] = new HashSet<Character>();
+            cols[i] = new HashSet<Character>();
         }
 
         for(int i=0; i<3; i++) {
-            List<Set<Character>> box_row = new ArrayList<Set<Character>>();
             for(int j=0; j<3; j++) {
-                Set<Character> box = new HashSet<Character>();
-                box_row.add(box);
+                grid[i][j] = new HashSet<Character>(); 
             }
-            boxes.add(box_row);
         }
 
         for(int i=0; i<9; i++) {
             for(int j=0; j<9; j++) {
-                char x = board[i][j];
 
-                if(x == '.') continue;
+                char ch = board[i][j];
 
-                Set<Character> row = rows.get(i);
-                Set<Character> col = cols.get(j);
-                Set<Character> box = boxes.get(i/3).get(j/3);
+                if(ch < '0' || ch > '9') 
+                    continue;
 
-                if(row.contains(x) || col.contains(x) || box.contains(x))
+                // check validity -- row -- col -- grid
+                if(rows[i].contains(ch)
+                    || cols[j].contains(ch)
+                    || grid[i/3][j/3].contains(ch)) {
                     return false;
-                
-                row.add(x); 
-                col.add(x);
-                box.add(x);
+                }
+
+                rows[i].add(ch);
+                cols[j].add(ch);
+                grid[i/3][j/3].add(ch);
             }
-        } 
+        }
+
         return true;
-        
     }
 }
