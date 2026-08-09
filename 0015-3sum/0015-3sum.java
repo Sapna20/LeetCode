@@ -1,12 +1,3 @@
-/**
-[-1,0,1,2,-1,-4]
-
--4, -1, -1, 0, 1, 2
-
--4, 
-
-*/
-
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         Arrays.sort(nums);
