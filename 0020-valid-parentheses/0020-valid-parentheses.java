@@ -1,37 +1,35 @@
 class Solution {
 
-    private boolean isOpen(Character c) {
-        return c == '[' || c == '(' || c == '{';
+    boolean isOpen(char c) {
+        return c == '(' || c == '{' || c == '[';
     }
 
-    private boolean isClose(Character c) {
-        return c == ']' || c == ')' || c == '}';
+    boolean isClose(char c) {
+        return c == ')' || c == '}' || c == ']';
     }
 
-    private boolean isValidPair(Character open, Character close) {
-        return (open == '(' && close == ')') || (open == '{' && close == '}') || (open == '[' && close == ']');
-        
+    boolean isOpenPairPresent(char close, char stTop) {
+        return ( close == ')' && stTop == '(' )
+            || ( close == '}' && stTop == '{' )
+            || ( close == ']' && stTop == '[' );
     }
 
     public boolean isValid(String s) {
-        Stack<Character> st = new Stack<>();
-
+        Stack<Character> st = new Stack<Character>();
+        
         for(int i=0; i<s.length(); i++) {
-            Character c = s.charAt(i);
+            char c = s.charAt(i);
             if(isOpen(c)) {
                 st.push(c);
-                continue;
-            } 
-
-            if(!st.isEmpty()) {
-                Character z = st.pop();
-                if(!isValidPair(z, c))
+            } else if(isClose(c)) {
+                if(st.isEmpty() || !isOpenPairPresent(c, st.peek())) {
                     return false;
-            } else {
-                return false;
+                }
+
+                st.pop();
             }
-        
         }
+
         return st.isEmpty();
     }
 }
