@@ -1,20 +1,23 @@
 class Solution {
     public int trap(int[] height) {
-        int i=0, j = height.length-1;
-        int total = 0, lmax = height[i], rmax = height[j];
+        int leftmaxH = 0;
+        int rightmaxH = 0;
+        int lptr = 0;
+        int rptr = height.length - 1;
+        int maxWater = 0;
 
-        while(i < j) {
-            if(lmax <= rmax) {
-                i++;
-                lmax = Math.max(lmax, height[i]);
-                total += lmax - height[i];
+        while(lptr < rptr) {
+            if(height[lptr] < height[rptr]) {
+                leftmaxH = Math.max(leftmaxH, height[lptr]);
+                maxWater += leftmaxH - height[lptr];
+                lptr++;
             } else {
-                j--;
-                rmax = Math.max(rmax, height[j]);
-                total += rmax - height[j];
+                rightmaxH = Math.max(rightmaxH, height[rptr]);
+                maxWater += rightmaxH - height[rptr];
+                rptr--;
             }
         }
 
-        return total;
+        return maxWater;
     }
 }
