@@ -1,38 +1,37 @@
 class Solution {
 
-    private boolean isValid(int mid, int[] piles, int h) {
-        int n = piles.length;
-        int total_hours = 0;
-
-        for(int i=0; i<n; i++) {
-            total_hours += Math.ceil((double)piles[i]/(double)mid);
+    private long hoursTaken(int[] piles, int rate) { //r = 17 // r = 24 // r = 20 // r = 22
+        long hrs = 0;
+        for(int x : piles) {
+            if(x % rate == 0) { //8 ----//6 ----// 7 // 2+1+2+1+1 = 7 // 2+1+1+1+1 = 6
+                hrs += x/rate;  
+            } else {
+                hrs += x/rate + 1;
+            }
         }
-
-        return total_hours <= h;
+        return hrs;
     }
 
     public int minEatingSpeed(int[] piles, int h) {
-        int k = 0;
         int start = 1;
-        int end = 0;
-
+        int end = Integer.MIN_VALUE;
+        
         for(int x : piles) {
-            end = Math.max(end, x);
+            end = Math.max(x, end);
         }
-        // System.out.println("end = " + end);
+        int rate = end;
 
-        while(start <= end) {
-            int mid = (end-start)/2 + start;
-            // System.out.println("mid = " + mid);
-            if(isValid(mid, piles, h)) {
-                k = mid;
-                end = mid-1;
-                // System.out.println("k = " + k);
+        while(start <= end) { 
+            int mid = (end-start)/2 + start; //17 // 24 // 20 // 22 // 23
+
+            if(hoursTaken(piles, mid) <= h) { //  8 > 6 // 6 <= 6 // 7 > 6 //  6<=6
+                rate = Math.min(rate, mid); 
+                end = mid-1; // end = 23 // end = 21
             } else {
-                start = mid+1;
+                start = mid+1;    // start = 18 // start = 21 // start = 23
             }
         }
-        // System.out.println("piles[0] " + piles[0]);
-        return k;
+
+        return rate;
     }
 }
