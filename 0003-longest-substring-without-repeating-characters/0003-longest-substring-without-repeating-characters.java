@@ -7,11 +7,10 @@ class Solution {
 
         while(j < n) {
             char c = s.charAt(j);
-            if(set.contains(c)) {
-                while(set.contains(c)){
-                    set.remove(s.charAt(i));
-                    i++;
-                }
+            
+            while(set.contains(c)){
+                set.remove(s.charAt(i));
+                i++;
             } 
             set.add(c);
             maxWindow = Math.max(maxWindow, j-i+1);
