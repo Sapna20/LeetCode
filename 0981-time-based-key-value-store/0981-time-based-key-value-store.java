@@ -1,47 +1,59 @@
 class Pair {
     String value;
-    int timeStamp;
+    int timestamp;
 
-    Pair (String v, int t) {
-        value = v;
-        timeStamp = t;
+    Pair(String value, int timestamp) {
+        this.value = value;
+        this.timestamp = timestamp;
+    }
+
+    String getValue() {
+        return value;
+    }
+
+    int getTimestamp() {
+        return timestamp;
     }
 }
 
 class TimeMap {
 
-    HashMap<String, List<Pair>> map;
+    private Map<String, List<Pair>> map;
 
     public TimeMap() {
         map = new HashMap<String, List<Pair>>();
     }
     
     public void set(String key, String value, int timestamp) {
-        List<Pair> ls = map.getOrDefault(key, new ArrayList<Pair>());
-        ls.add(new Pair(value, timestamp));
-        map.put(key, ls);
+        if(map.containsKey(key)) {
+            map.get(key).add(new Pair(value, timestamp));
+        } else {
+            map.put(key, new ArrayList<Pair>());
+            map.get(key).add(new Pair(value, timestamp));
+        }
     }
     
     public String get(String key, int timestamp) {
-        return map.containsKey(key) ? binarySearchValue(map.get(key), timestamp) : "";
+        return map.containsKey(key) ? binarySearch(map.get(key), timestamp) : "";
     }
 
-    private String binarySearchValue(List<Pair> ls, int timestamp) {
+    private String binarySearch(List<Pair> values, int targetTime) {
         int start = 0;
-        int end = ls.size()-1;
+        int end = values.size()-1;
 
         while(start <= end) {
             int mid = (end-start)/2 + start;
-            if(ls.get(mid).timeStamp == timestamp) {
-                return ls.get(mid).value;
-            } else if (ls.get(mid).timeStamp > timestamp) {
-                end = mid-1;
-            } else {
+            int time = values.get(mid).getTimestamp();
+            if(time == targetTime) {
+                return values.get(mid).getValue();
+            } else if(time < targetTime) {
                 start = mid+1;
+            } else {
+                end = mid-1;
             }
         }
 
-        return end < 0 ? "" : ls.get(end).value;
+        return end >= 0 ? values.get(end).getValue() : "";
     }
 }
 
