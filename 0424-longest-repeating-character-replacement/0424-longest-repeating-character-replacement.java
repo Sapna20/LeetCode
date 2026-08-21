@@ -13,7 +13,7 @@ class Solution {
         int n = s.length();
         int i=0, j=0, ans = 0;
 
-        while(j < n) {
+        while(j < n) { 
             char c = s.charAt(j);
             fmap.put(c, fmap.getOrDefault(c, 0)+1);
             
