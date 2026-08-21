@@ -1,40 +1,44 @@
 class Solution {
-    public boolean checkInclusion(String s1, String s2) {
-        int m = s1.length();
-        int n = s2.length();
-
-        if(m > n) 
-            return false;
-
-        Map<Character, Integer> map1 = new HashMap<Character, Integer>();
-        Map<Character, Integer> map2 = new HashMap<Character, Integer>();
-
-        for(int i=0; i<m; i++) {
-            map1.put(s1.charAt(i), map1.getOrDefault(s1.charAt(i), 0)+1);
+    private boolean isFreqEqual(int[] f1, int[] f2) {
+        for(int i=0; i<26; i++) {
+            if(f1[i] != f2[i]) {
+                return false;
+            }
         }
 
-        int j=0;
-        int i=0;
-        while(j < n) {
-           
-            map2.put(s2.charAt(j), map2.getOrDefault(s2.charAt(j), 0)+1);
-            if (j-i+1 == m) {
+        return true;
+    }
 
-                if(map1.equals(map2))
-                    return true;
-                if(map2.containsKey(s2.charAt(i))) {
-                    int val = map2.get(s2.charAt(i));
-                    if(val == 1) {
-                        map2.remove(s2.charAt(i));
-                    } else {
-                        map2.put(s2.charAt(i), val-1);
-                    }
-                }
-                i++;
+    public boolean checkInclusion(String s1, String s2) {
+        int n = s2.length();
+        int m = s1.length();
+        if(m > n) 
+            return false;
+        
+        int[] freq = new int[26];
+        int[] windowFreq = new int[26];
+
+        for(int i=0; i<m; i++) {
+            freq[s1.charAt(i) - 'a']++;
+            windowFreq[s2.charAt(i) - 'a']++;
+        }
+
+        int j=m, i=0;
+        while( j < n) {
+            if(isFreqEqual(freq, windowFreq)) {
+                return true;
             }
+            windowFreq[s2.charAt(j)-'a']++;
             j++;
+            windowFreq[s2.charAt(i) - 'a']--;
+            i++;
+        }
+
+        if(isFreqEqual(freq, windowFreq)) {
+            return true;
         }
 
         return false;
+
     }
 }
