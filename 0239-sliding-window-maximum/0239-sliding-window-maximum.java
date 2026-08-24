@@ -1,30 +1,31 @@
 class Solution {
     public int[] maxSlidingWindow(int[] nums, int k) {
-        Deque<Integer> deq = new ArrayDeque<>();
-        int i=0, j=0, n=nums.length;
-        List<Integer> ls = new ArrayList<>();
+        int curr_sum = 0;
+        int i=0, j=0, n = nums.length;
+        Deque<Integer> dq = new ArrayDeque<Integer>();
+        int[] ans = new int[n-k+1];
 
-        while(j<n) {
-            while(!deq.isEmpty() && deq.peekLast() < nums[j]) {
-                deq.pollLast();
+        for(j=0; j<k; j++) { // 1R, 3, 1 
+            while(dq.peekLast() != null && nums[j] > nums[dq.peekLast()]) { //3 > 1
+                dq.pollLast(); // 1R, 
             }
-            deq.offerLast(nums[j]);
+            dq.offerLast(j); //  
+        } 
 
-            if(j-i+1 == k) {
-                ls.add(deq.peekFirst());
-                if(nums[i] == deq.peekFirst()) {
-                    deq.pollFirst();
-                }
-                i++;
+        // 3, 3, 5, 
+        for(j=k; j<n; j++) { // 1R, 3, 1 
+            ans[j-k] = nums[dq.peekFirst()];
+            if(dq.peekFirst() <= i) {
+                dq.pollFirst();
             }
-            j++;
+            i++;
+            while(dq.peekLast() != null && nums[j] > nums[dq.peekLast()]) {
+                dq.pollLast();
+            }
+            dq.offerLast(j);
         }
 
-        int[] ans = new int[ls.size()];
-
-        for(int idx=0; idx<ls.size(); idx++) {
-            ans[idx] = ls.get(idx);
-        }
+        ans[n - k] = nums[dq.peekFirst()];
 
         return ans;
     }
