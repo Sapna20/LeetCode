@@ -27,13 +27,15 @@ class Solution {
         ListNode fastPtr = head;
         ListNode slowPtr = head;
 
-        while(fastPtr != null && fastPtr.next != null) {
+        while(fastPtr.next != null && fastPtr.next.next != null) {
             fastPtr = fastPtr.next.next;
             slowPtr = slowPtr.next;
         }
 
+        ListNode temp = slowPtr.next;
+        slowPtr.next = null;
         ListNode l1 = head;
-        ListNode l2 = reverseList(slowPtr);
+        ListNode l2 = reverseList(temp);
         ListNode l3 = new ListNode();
         
         int i=0;
