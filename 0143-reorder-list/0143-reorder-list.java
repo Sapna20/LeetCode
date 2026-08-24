@@ -9,47 +9,44 @@
  * }
  */
 class Solution {
-    public void reorderList(ListNode head) {
-        ListNode temp1 = head;
-        int n = 0;
-        while(temp1 != null) {
-            n++;
-            temp1 = temp1.next;
-        }
 
-        int half_n = (n+1)/2;
-        
-        ListNode temp2 = head;
-        int first_half = 0;
-        while(first_half != half_n) {
-            temp2 = temp2.next;
-            first_half++;
-        }
-
-        ListNode partList = reverseList(temp2);
-
-        ListNode curr = head;
-        ListNode upc = partList;
-
-        while(curr != null) {
-            ListNode temp3 = curr.next;
-            curr.next = upc;
-            upc = temp3;
-            curr = curr.next;
-        }
-    }
-
-    private ListNode reverseList(ListNode head) {
+    private ListNode reverseList(ListNode node) {
         ListNode prev = null;
-        ListNode curr = head;
+        ListNode curr = node;
 
         while(curr != null) {
             ListNode temp = curr.next;
-            curr.next = prev;
+            curr.next = prev; 
             prev = curr;
             curr = temp;
         }
-
         return prev;
+    }
+
+    public void reorderList(ListNode head) {
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+
+        while(fastPtr != null && fastPtr.next != null) {
+            fastPtr = fastPtr.next.next;
+            slowPtr = slowPtr.next;
+        }
+
+        ListNode l1 = head;
+        ListNode l2 = reverseList(slowPtr);
+        ListNode l3 = new ListNode();
+        
+        int i=0;
+        while(l3 != null) {
+            if(i%2 == 0) {
+                l3.next = l1;
+                l1 = l1 != null ? l1.next : null;
+            } else {
+                l3.next = l2;
+                l2 = l2 != null ? l2.next : null;
+            }
+            l3 = l3.next;
+            i++;
+        }
     }
 }
