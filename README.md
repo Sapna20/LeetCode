@@ -85,6 +85,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0133-clone-graph](https://github.com/Sapna20/LeetCode/tree/main/0133-clone-graph/) | Medium |
 | [0138-copy-list-with-random-pointer](https://github.com/Sapna20/LeetCode/tree/main/0138-copy-list-with-random-pointer/) | Medium |
 | [0141-linked-list-cycle](https://github.com/Sapna20/LeetCode/tree/main/0141-linked-list-cycle/) | Easy |
+| [0146-lru-cache](https://github.com/Sapna20/LeetCode/tree/main/0146-lru-cache/) | Medium |
 | [0217-contains-duplicate](https://github.com/Sapna20/LeetCode/tree/main/0217-contains-duplicate/) | Easy |
 | [0242-valid-anagram](https://github.com/Sapna20/LeetCode/tree/main/0242-valid-anagram/) | Easy |
 | [0347-top-k-frequent-elements](https://github.com/Sapna20/LeetCode/tree/main/0347-top-k-frequent-elements/) | Medium |
@@ -281,6 +282,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## Design
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0146-lru-cache](https://github.com/Sapna20/LeetCode/tree/main/0146-lru-cache/) | Medium |
 | [0155-min-stack](https://github.com/Sapna20/LeetCode/tree/main/0155-min-stack/) | Medium |
 | [0703-kth-largest-element-in-a-stream](https://github.com/Sapna20/LeetCode/tree/main/0703-kth-largest-element-in-a-stream/) | Easy |
 | [0981-time-based-key-value-store](https://github.com/Sapna20/LeetCode/tree/main/0981-time-based-key-value-store/) | Medium |
@@ -302,6 +304,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0138-copy-list-with-random-pointer](https://github.com/Sapna20/LeetCode/tree/main/0138-copy-list-with-random-pointer/) | Medium |
 | [0141-linked-list-cycle](https://github.com/Sapna20/LeetCode/tree/main/0141-linked-list-cycle/) | Easy |
 | [0143-reorder-list](https://github.com/Sapna20/LeetCode/tree/main/0143-reorder-list/) | Medium |
+| [0146-lru-cache](https://github.com/Sapna20/LeetCode/tree/main/0146-lru-cache/) | Medium |
 | [0206-reverse-linked-list](https://github.com/Sapna20/LeetCode/tree/main/0206-reverse-linked-list/) | Easy |
 ## Recursion
 | Problem Name | Difficulty |
@@ -489,4 +492,8 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0287-find-the-duplicate-number](https://github.com/Sapna20/LeetCode/tree/main/0287-find-the-duplicate-number/) | Medium |
+## Doubly-Linked List
+| Problem Name | Difficulty |
+| ------- | ------- |
+| [0146-lru-cache](https://github.com/Sapna20/LeetCode/tree/main/0146-lru-cache/) | Medium |
 <!---LeetCode Topics End-->
