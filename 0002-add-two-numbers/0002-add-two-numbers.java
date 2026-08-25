@@ -10,20 +10,6 @@
  */
 class Solution {
 
-    private ListNode reverseList(ListNode node) {
-        ListNode prev = null;
-        ListNode curr = node;
-
-        while(curr != null) {
-            ListNode temp = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = temp;
-        }
-
-        return prev;
-    }
-
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
         ListNode l3 = new ListNode();
