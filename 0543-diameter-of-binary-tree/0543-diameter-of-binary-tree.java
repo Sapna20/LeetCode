@@ -15,12 +15,18 @@
  */
 class Solution {
 
+    HashMap<TreeNode, Integer> map = new HashMap<>();
+
     private int maxHeight(TreeNode root) {
         if(root == null) {
             return 0;
         }
-
-        return 1 + Math.max(maxHeight(root.left), maxHeight(root.right));
+        if(map.containsKey(root)) {
+            return map.get(root);
+        }
+        int maxH = 1 + Math.max(maxHeight(root.left), maxHeight(root.right));
+        map.put(root, maxH);
+        return maxH;
     }
 
     public int diameterOfBinaryTree(TreeNode root) {
