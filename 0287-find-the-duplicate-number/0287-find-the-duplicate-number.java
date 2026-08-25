@@ -1,23 +1,16 @@
 class Solution {
-    public int findDuplicate(int[] arr) {
-        // 0->1->3->2->4->2
+    public int findDuplicate(int[] nums) {
+        int fast = 0, slow = 0;
 
-        int n = arr.length;
-        int fast = 0;
-        int slow = 0;
-        while(true) {
-            fast = arr[arr[fast]];
-            slow = arr[slow];
-            if(slow == fast) {
-                break;
-            }
+        while(fast != slow || fast == 0) {
+            fast = nums[nums[fast]];
+            slow = nums[slow];
         }
 
         fast = 0;
-
         while(fast != slow) {
-            fast = arr[fast];
-            slow = arr[slow];
+            fast = nums[fast];
+            slow = nums[slow];
         }
 
         return fast;
