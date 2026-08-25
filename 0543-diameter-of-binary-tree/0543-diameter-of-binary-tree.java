@@ -15,40 +15,26 @@
  */
 class Solution {
 
-    HashMap<TreeNode, Integer> hMap = new HashMap<TreeNode, Integer>();
-
-    private int heightOfBinaryTree(TreeNode root) {
+    private int maxHeight(TreeNode root) {
         if(root == null) {
             return 0;
         }
 
-        if(hMap.containsKey(root)) {
-            return hMap.get(root);
-        }
-
-        int height = 1 + Math.max(heightOfBinaryTree(root.left), heightOfBinaryTree(root.right));
-
-        hMap.put(root, height);
-
-        return height;
-        
+        return 1 + Math.max(maxHeight(root.left), maxHeight(root.right));
     }
 
     public int diameterOfBinaryTree(TreeNode root) {
-        if(root == null) {
+        if(root == null)
             return 0;
-        }
+        int leftH = maxHeight(root.left);
+        int rightH = maxHeight(root.right);
 
-        int hl = heightOfBinaryTree(root.left);
-        int hr = heightOfBinaryTree(root.right);
+        int currDia = leftH + rightH;
 
-        int dia = hl + hr;
-
-        return Math.max(dia, 
+        return Math.max(currDia, 
                         Math.max(
                             diameterOfBinaryTree(root.left),
                             diameterOfBinaryTree(root.right)
-                            )
-                        );
+                        ));
     }
 }
