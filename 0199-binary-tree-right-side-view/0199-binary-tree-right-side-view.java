@@ -15,25 +15,24 @@
  */
 class Solution {
 
-    private List<Integer> ls = new ArrayList<Integer>();
+    List<Integer> list = new ArrayList<Integer>();
 
-    private void processRightSide(TreeNode root, int height) {
-        if(root == null) 
-            return;
-
-        if(ls.size() == height) {
-            ls.add(root.val);
+    private List<Integer> traverse(TreeNode root, int level) {
+        if (root == null) {
+            return list;
         }
 
-        processRightSide(root.right, height+1);
-        processRightSide(root.left, height+1);
+        if(list.size() == level) {
+            list.add(root.val);
+        }
+
+        traverse(root.right, level+1);
+        traverse(root.left, level+1);
+
+        return list;
     }
 
     public List<Integer> rightSideView(TreeNode root) {
-        if(root == null) 
-            return ls;
-
-        processRightSide(root, 0);
-        return this.ls;
+        return traverse(root, 0);
     }
 }
