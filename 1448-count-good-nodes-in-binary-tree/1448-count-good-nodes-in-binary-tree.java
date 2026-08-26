@@ -15,20 +15,23 @@
  */
 class Solution {
 
-    private int processGoodNodes(TreeNode root, int maxSoFar, int count) {
-        if(root == null) 
-            return count;
-
-        if(root.val >= maxSoFar) {
-            maxSoFar = root.val;
-            count++;   
+    private int countGoodNodes(TreeNode root, int max_so_far) {
+        if(root == null) {
+            return 0;
         }
 
-        count = processGoodNodes(root.left, maxSoFar, count);
-        count = processGoodNodes(root.right, maxSoFar, count);
-        return count;
+        int count_curr = 0;
+        if(root.val >= max_so_far) {
+            count_curr++;
+            max_so_far = root.val;
+        }
+
+        return count_curr + countGoodNodes(root.left, max_so_far) + countGoodNodes(root.right, max_so_far);
     }
+
     public int goodNodes(TreeNode root) {
-        return processGoodNodes(root, Integer.MIN_VALUE, 0);
+
+        return countGoodNodes(root, Integer.MIN_VALUE);
+        
     }
 }
