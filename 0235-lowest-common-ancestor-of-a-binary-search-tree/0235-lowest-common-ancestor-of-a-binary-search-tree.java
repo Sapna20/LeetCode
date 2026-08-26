@@ -9,22 +9,11 @@
  */
 
 class Solution {
-
-
-
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        if(p == null || q == null || root == null) {
-            return null;
-        }
-
-        if(p == root || q == root) {
+        if(root == null || (root.val >= p.val && root.val <= q.val) || (root.val <= p.val && root.val >= q.val)) {
             return root;
-        } else if (p.val < root.val && q.val < root.val) {
-            return lowestCommonAncestor(root.left, p, q);
-        } else if (p.val > root.val && q.val > root.val) {
-            return lowestCommonAncestor(root.right, p, q);
         }
 
-        return root;
+        return (root.val > p.val && root.val > q.val) ? lowestCommonAncestor(root.left, p, q) : lowestCommonAncestor(root.right, p, q);
     }
 }
