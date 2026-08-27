@@ -1,30 +1,34 @@
 class Solution {
 
-    private List<List<Integer>> solve(int[] candidates, int target, int idx, List<Integer> ls, List<List<Integer>> ans) {
-        if(idx == candidates.length) {
+    private List<List<Integer>> ans;
+
+    private void process(int[] nums, int target, int n, List<Integer> list) {
+        if(n < 0) {
             if(target == 0) {
-                ans.add(new ArrayList<Integer>(ls));
+                ans.add(new ArrayList<Integer>(list));
             }
-            return ans;
+            return;
         }
 
-        if(target - candidates[idx] >= 0) {
-            ls.add(candidates[idx]);
-            solve(candidates, target - candidates[idx], idx+1, ls, ans);
-            ls.remove(ls.size()-1);
-            while(idx < candidates.length-1 && candidates[idx] == candidates[idx+1]) {
-                idx++;
+        if(target - nums[n] >= 0) {
+            list.add(nums[n]);
+            process(nums, target-nums[n], n-1, list);
+            list.remove(list.size()-1);
+            while(n - 1 >= 0 && nums[n-1] == nums[n]) {
+                n--;
             }
-            solve(candidates, target, idx+1, ls, ans);
+            process(nums, target, n-1, list);
         } else {
-            solve(candidates, target, idx+1, ls, ans);
+            process(nums, target, n-1, list);
         }
 
-        return ans;
+        return;
     }
 
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        ans = new ArrayList<List<Integer>> ();
         Arrays.sort(candidates);
-        return solve(candidates, target, 0, new ArrayList<Integer>(), new ArrayList<List<Integer>>());
+        process(candidates, target, candidates.length-1, new ArrayList<Integer>());
+        return ans;
     }
 }
