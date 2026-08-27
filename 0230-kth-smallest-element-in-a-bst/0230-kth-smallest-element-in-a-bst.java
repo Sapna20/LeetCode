@@ -15,22 +15,26 @@
  */
 class Solution {
 
-    private int pos = 0;
+    private int idx = 0;
 
-    public int kthSmallest(TreeNode root, int k) {
-        if (root == null) {
+    private int inorderKthSmallest(TreeNode root, int k) {
+        if(root == null) {
             return -1;
         }
 
-
-        int a = kthSmallest(root.left, k);
-        this.pos++;
-        if(this.pos == k) {
+        int a = inorderKthSmallest(root.left, k);
+        idx = idx+1;
+        // System.out.println(idx + " root=" + root.val);
+        if(idx == k) {
             return root.val;
         }
-        
-        int b = kthSmallest(root.right, k);
+        int b = inorderKthSmallest(root.right, k);
 
         return a == -1 ? b : a;
+    }
+
+    public int kthSmallest(TreeNode root, int k) {
+
+        return inorderKthSmallest(root, k);
     }
 }
