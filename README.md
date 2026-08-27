@@ -228,6 +228,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0091-decode-ways](https://github.com/Sapna20/LeetCode/tree/main/0091-decode-ways/) | Medium |
 | [0097-interleaving-string](https://github.com/Sapna20/LeetCode/tree/main/0097-interleaving-string/) | Medium |
 | [0121-best-time-to-buy-and-sell-stock](https://github.com/Sapna20/LeetCode/tree/main/0121-best-time-to-buy-and-sell-stock/) | Easy |
+| [0124-binary-tree-maximum-path-sum](https://github.com/Sapna20/LeetCode/tree/main/0124-binary-tree-maximum-path-sum/) | Hard |
 | [0131-palindrome-partitioning](https://github.com/Sapna20/LeetCode/tree/main/0131-palindrome-partitioning/) | Medium |
 | [0152-maximum-product-subarray](https://github.com/Sapna20/LeetCode/tree/main/0152-maximum-product-subarray/) | Medium |
 | [0198-house-robber](https://github.com/Sapna20/LeetCode/tree/main/0198-house-robber/) | Medium |
@@ -325,6 +326,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0104-maximum-depth-of-binary-tree](https://github.com/Sapna20/LeetCode/tree/main/0104-maximum-depth-of-binary-tree/) | Easy |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/Sapna20/LeetCode/tree/main/0105-construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium |
 | [0110-balanced-binary-tree](https://github.com/Sapna20/LeetCode/tree/main/0110-balanced-binary-tree/) | Easy |
+| [0124-binary-tree-maximum-path-sum](https://github.com/Sapna20/LeetCode/tree/main/0124-binary-tree-maximum-path-sum/) | Hard |
 | [0199-binary-tree-right-side-view](https://github.com/Sapna20/LeetCode/tree/main/0199-binary-tree-right-side-view/) | Medium |
 | [0226-invert-binary-tree](https://github.com/Sapna20/LeetCode/tree/main/0226-invert-binary-tree/) | Easy |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/Sapna20/LeetCode/tree/main/0230-kth-smallest-element-in-a-bst/) | Medium |
@@ -341,6 +343,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0100-same-tree](https://github.com/Sapna20/LeetCode/tree/main/0100-same-tree/) | Easy |
 | [0104-maximum-depth-of-binary-tree](https://github.com/Sapna20/LeetCode/tree/main/0104-maximum-depth-of-binary-tree/) | Easy |
 | [0110-balanced-binary-tree](https://github.com/Sapna20/LeetCode/tree/main/0110-balanced-binary-tree/) | Easy |
+| [0124-binary-tree-maximum-path-sum](https://github.com/Sapna20/LeetCode/tree/main/0124-binary-tree-maximum-path-sum/) | Hard |
 | [0130-surrounded-regions](https://github.com/Sapna20/LeetCode/tree/main/0130-surrounded-regions/) | Medium |
 | [0133-clone-graph](https://github.com/Sapna20/LeetCode/tree/main/0133-clone-graph/) | Medium |
 | [0199-binary-tree-right-side-view](https://github.com/Sapna20/LeetCode/tree/main/0199-binary-tree-right-side-view/) | Medium |
@@ -389,6 +392,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0104-maximum-depth-of-binary-tree](https://github.com/Sapna20/LeetCode/tree/main/0104-maximum-depth-of-binary-tree/) | Easy |
 | [0105-construct-binary-tree-from-preorder-and-inorder-traversal](https://github.com/Sapna20/LeetCode/tree/main/0105-construct-binary-tree-from-preorder-and-inorder-traversal/) | Medium |
 | [0110-balanced-binary-tree](https://github.com/Sapna20/LeetCode/tree/main/0110-balanced-binary-tree/) | Easy |
+| [0124-binary-tree-maximum-path-sum](https://github.com/Sapna20/LeetCode/tree/main/0124-binary-tree-maximum-path-sum/) | Hard |
 | [0199-binary-tree-right-side-view](https://github.com/Sapna20/LeetCode/tree/main/0199-binary-tree-right-side-view/) | Medium |
 | [0226-invert-binary-tree](https://github.com/Sapna20/LeetCode/tree/main/0226-invert-binary-tree/) | Easy |
 | [0230-kth-smallest-element-in-a-bst](https://github.com/Sapna20/LeetCode/tree/main/0230-kth-smallest-element-in-a-bst/) | Medium |
@@ -504,6 +508,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 ## DP on Trees
 | Problem Name | Difficulty |
 | ------- | ------- |
+| [0124-binary-tree-maximum-path-sum](https://github.com/Sapna20/LeetCode/tree/main/0124-binary-tree-maximum-path-sum/) | Hard |
 | [0543-diameter-of-binary-tree](https://github.com/Sapna20/LeetCode/tree/main/0543-diameter-of-binary-tree/) | Easy |
 ## Binary Lifting
 | Problem Name | Difficulty |
