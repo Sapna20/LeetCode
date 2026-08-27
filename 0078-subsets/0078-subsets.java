@@ -1,21 +1,24 @@
 class Solution {
 
-    private List<List<Integer>> solve(int[] nums, int idx, List<List<Integer>> ans, List<Integer> currList) {
-        if(idx == nums.length) {
-            ans.add(new ArrayList<Integer>(currList));
-            return ans;
+    private List<List<Integer>> subsets;
+
+    private void getSubsets(int[] nums, int n, List<Integer> list) {
+        if(n < 0) {
+            subsets.add(new ArrayList<>(list));
+            return;
         }
 
-        currList.add(nums[idx]);
-        solve(nums, idx+1, ans, currList);
-        currList.remove(currList.size()-1);
-        solve(nums, idx+1, ans, currList);
+        list.add(nums[n]);
+        getSubsets(nums, n-1, list);
+        list.remove(list.size()-1);
+        getSubsets(nums, n-1, list);
 
-        return ans;
-
+        return;
     }
 
     public List<List<Integer>> subsets(int[] nums) {
-        return solve(nums, 0, new ArrayList<List<Integer>>(), new ArrayList<Integer>());
+        subsets = new ArrayList<List<Integer>>();
+        getSubsets(nums, nums.length-1, new ArrayList<Integer>());
+        return subsets;
     }
 }
