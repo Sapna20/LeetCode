@@ -1,28 +1,30 @@
 class Solution {
 
-    private List<List<Integer>> solve(int[] candidates, int target, int idx, List<List<Integer>> ansList, List<Integer> currList) {
-        if(idx == candidates.length) {
-            return ansList;
-        }
+    private List<List<Integer>> ans;
 
-        if(target - candidates[idx] > 0) {
-            currList.add(candidates[idx]);
-            solve(candidates, target - candidates[idx], idx, ansList, currList);
-            currList.remove(currList.size()-1);
-            solve(candidates, target, idx+1, ansList, currList);
-        } else if(target - candidates[idx] == 0) {
-            currList.add(candidates[idx]);
-            ansList.add(new ArrayList<Integer>(currList));
-            currList.remove(currList.size()-1);
-            solve(candidates, target, idx+1, ansList, currList);
+    private void findCombinations(int[] candidates, int target, int n, List<Integer> list) {
+        if(n < 0) {
+            if(target == 0) {
+                ans.add(new ArrayList<Integer>(list));
+            }
+            return;
+        } 
+
+        if(target - candidates[n] >= 0) {
+            list.add(candidates[n]);
+            findCombinations(candidates, target-candidates[n], n, list);
+            list.remove(list.size()-1);
+            findCombinations(candidates, target, n-1, list);
         } else {
-            solve(candidates, target, idx+1, ansList, currList);
+            findCombinations(candidates, target, n-1, list);
         }
 
-       return ansList;
+        return;
     }
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        return solve(candidates, target, 0, new ArrayList<List<Integer>>(), new ArrayList<Integer> ());
+        ans = new ArrayList<List<Integer>>();
+        findCombinations(candidates, target, candidates.length-1, new ArrayList<Integer>());
+        return ans;
     }
 }
