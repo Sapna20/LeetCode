@@ -1,27 +1,17 @@
 class Solution {
-
-    private int solve(int[] nums, int n, Integer[] dp) {
-        if(n < 0) {
-            return 0;
-        }
-
-        if(dp[n] != null) {
-            return dp[n];
-        }
-
-        dp[n] = Math.max(
-            nums[n] + solve(nums, n-2, dp),
-            solve(nums, n-1, dp)
-        );
-
-        return dp[n];
-    }
     public int rob(int[] nums) {
         int n = nums.length;
-        Integer[] dp = new Integer[n];
+        if(n <= 1) {
+            return nums[n-1];
+        }
+        int[] dp = new int[n];
+        dp[0] = nums[0];
+        dp[1] = Math.max(nums[0], nums[1]);
 
-        return solve(nums, n-1, dp);
+        for(int i=2; i<n; i++) {
+            dp[i] = Math.max(nums[i] + dp[i-2], dp[i-1]);
+        } 
 
-        // write bottom up during revision
+        return dp[n-1];
     }
 }
