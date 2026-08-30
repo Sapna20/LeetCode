@@ -1,36 +1,31 @@
 class Solution {
 
-    private int solve(int[] nums, int start, int n, Integer[] dp) {
-        if(n < start) {
-            return 0;
+    private int robBottomUp(int[] nums, int start, int end) { // 1, 2
+        if(start == end) {
+            return nums[start];
+        } 
+        int[] dp = new int[end-start+1];
+        dp[0] = nums[start];
+        dp[1] = Math.max(nums[start], nums[start+1]);
+
+        for(int i=2; i<=end-start; i++) {
+            dp[i] = Math.max(
+                            nums[i+start] + dp[i-2],
+                            dp[i-1]
+                        );
         }
 
-        if(dp[n] != null) {
-            return dp[n];
-        }
-
-        dp[n] = Math.max(
-            nums[n] + solve(nums, start, n-2, dp),
-            solve(nums, start, n-1, dp)
-            );
-        
-        return dp[n];
+        return dp[end-start];
     }
 
     public int rob(int[] nums) {
         int n = nums.length;
-
-        if(n == 1) {
+        if (n == 1) {
             return nums[0];
         }
-        Integer[] dp_A = new Integer[n];
-        Integer[] dp_B = new Integer[n];
-        
         return Math.max(
-            solve(nums, 0, n-2, dp_A),
-            solve(nums, 1, n-1, dp_B)
-            );
-
-        // revise with bottom up 
+            robBottomUp(nums, 0, n-2),
+            robBottomUp(nums, 1, n-1)
+        );
     }
 }
