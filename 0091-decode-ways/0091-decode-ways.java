@@ -1,36 +1,28 @@
 class Solution {
-
-    private int solve(String s, int idx, Integer[] dp) {
-        if(idx == s.length()) {
-            return 1;
-        }
-
-        if(dp[idx] != null) {
-            return dp[idx];
-        }
-
-        if(s.charAt(idx) == '0') {
-            dp[idx] = 0;
+    public int numDecodings(String s) {
+        if (s.charAt(0) == '0') {
             return 0;
         }
-            
-        int total = solve(s, idx+1, dp);
 
-        if(idx+1 < s.length()) {
-            char tens = s.charAt(idx);
-            char ones = s.charAt(idx+1);
-            if((tens == '2' && ones <= '6') || tens < '2') {
-                total += solve(s, idx+2, dp);
+        int n = s.length();
+        int[] dp = new int[n+1];
+
+        dp[0] = 1;
+        dp[1] = 1;
+
+        for(int i=2; i<=n; i++) {
+            int oneDigit = s.charAt(i - 1) - '0';
+            int twoDigit = Integer.parseInt(s.substring(i - 2, i));
+
+            if (oneDigit >= 1 && oneDigit <= 9) {
+                dp[i] += dp[i - 1];
             }
-        } 
 
-        dp[idx] = total;
-        
-        return total;
-    }
+            if (twoDigit >= 10 && twoDigit <= 26) {
+                dp[i] += dp[i - 2];
+            }
+        }
 
-    public int numDecodings(String s) {
-        Integer[] dp = new Integer[s.length()];
-        return solve(s, 0, dp);
+        return dp[n];
     }
 }
