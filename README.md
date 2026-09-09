@@ -25,6 +25,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0049-group-anagrams](https://github.com/Sapna20/LeetCode/tree/main/0049-group-anagrams/) | Medium |
 | [0051-n-queens](https://github.com/Sapna20/LeetCode/tree/main/0051-n-queens/) | Hard |
 | [0053-maximum-subarray](https://github.com/Sapna20/LeetCode/tree/main/0053-maximum-subarray/) | Medium |
+| [0055-jump-game](https://github.com/Sapna20/LeetCode/tree/main/0055-jump-game/) | Medium |
 | [0056-merge-intervals](https://github.com/Sapna20/LeetCode/tree/main/0056-merge-intervals/) | Medium |
 | [0074-search-a-2d-matrix](https://github.com/Sapna20/LeetCode/tree/main/0074-search-a-2d-matrix/) | Medium |
 | [0078-subsets](https://github.com/Sapna20/LeetCode/tree/main/0078-subsets/) | Medium |
@@ -224,6 +225,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | [0022-generate-parentheses](https://github.com/Sapna20/LeetCode/tree/main/0022-generate-parentheses/) | Medium |
 | [0042-trapping-rain-water](https://github.com/Sapna20/LeetCode/tree/main/0042-trapping-rain-water/) | Hard |
 | [0053-maximum-subarray](https://github.com/Sapna20/LeetCode/tree/main/0053-maximum-subarray/) | Medium |
+| [0055-jump-game](https://github.com/Sapna20/LeetCode/tree/main/0055-jump-game/) | Medium |
 | [0062-unique-paths](https://github.com/Sapna20/LeetCode/tree/main/0062-unique-paths/) | Medium |
 | [0070-climbing-stairs](https://github.com/Sapna20/LeetCode/tree/main/0070-climbing-stairs/) | Easy |
 | [0072-edit-distance](https://github.com/Sapna20/LeetCode/tree/main/0072-edit-distance/) | Medium |
@@ -275,6 +277,7 @@ Collection of LeetCode questions to ace the coding interview! - Created using [L
 | Problem Name | Difficulty |
 | ------- | ------- |
 | [0011-container-with-most-water](https://github.com/Sapna20/LeetCode/tree/main/0011-container-with-most-water/) | Medium |
+| [0055-jump-game](https://github.com/Sapna20/LeetCode/tree/main/0055-jump-game/) | Medium |
 | [2126-destroying-asteroids](https://github.com/Sapna20/LeetCode/tree/main/2126-destroying-asteroids/) | Medium |
 | [2144-minimum-cost-of-buying-candies-with-discount](https://github.com/Sapna20/LeetCode/tree/main/2144-minimum-cost-of-buying-candies-with-discount/) | Easy |
 | [3633-earliest-finish-time-for-land-and-water-rides-i](https://github.com/Sapna20/LeetCode/tree/main/3633-earliest-finish-time-for-land-and-water-rides-i/) | Easy |
