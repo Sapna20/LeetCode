@@ -1,36 +1,32 @@
 class Solution {
 
-    boolean isValidChar(char ch) {
-        return (ch >= 'a' && ch <= 'z') 
-                || (ch >= '0' && ch <= '9');
+    private boolean isValid(char c) {
+        return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'z');
     }
 
     public boolean isPalindrome(String s) {
-        int left=0;
-        int right=s.length()-1;
-        s = s.toLowerCase();
-        while(left < right) {
-            char leftChar = s.charAt(left);
-            char rightChar = s.charAt(right);
+        String str = s.toLowerCase();
+        int i=0, j=s.length()-1;
 
-            if(!isValidChar(leftChar)) {
-                left++;
+        while(i<=j) {
+            if(!isValid(str.charAt(i))) {
+                i++;
                 continue;
             }
 
-            if(!isValidChar(rightChar)) {
-                right--;
+            if(!isValid(str.charAt(j))) {
+                j--;
                 continue;
             }
 
-            if(leftChar != rightChar) {
+            if(str.charAt(i) != str.charAt(j)) {
                 return false;
             }
-
-            left++;
-            right--;
+            i++;
+            j--;
         }
 
         return true;
+
     }
 }
