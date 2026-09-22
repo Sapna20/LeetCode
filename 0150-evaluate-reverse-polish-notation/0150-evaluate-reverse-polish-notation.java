@@ -1,35 +1,38 @@
 class Solution {
 
-    private boolean isOperator(String str) {
-        return str.equals("*") || str.equals("+") || str.equals("-") || str.equals("/");
+    private int calculateRPN(int a, int b, String c) {
+        switch (c) {
+            case "+":
+                return a + b;
+            case "-":
+                return a - b;
+            case "*":
+                return a*b;
+            case "/":
+                return a/b;
+        }
+        return -1;
     }
 
-    private int calculate(int num1, int num2, String str) {
-        if(str.equals("+")) {
-            return num1+num2;
-        } else if(str.equals("*")) {
-            return num1*num2;
-        } else if(str.equals("-")) {
-            return num1-num2;
-        } else {
-            return num1/num2;
-        }
+    private boolean isOperator(String op) {
+        return op.equals("+") || op.equals("*") || op.equals("-") || op.equals("/");
     }
 
     public int evalRPN(String[] tokens) {
-        Stack<Integer> stack = new Stack<Integer>();
+        Stack<Integer> stack = new Stack<>();
 
-        for(String str : tokens) {
-            if(isOperator(str)) {
-                int num2 = stack.pop();
-                int num1 = stack.pop();
-                int ans = calculate(num1, num2, str);
-                stack.push(ans);
+        for(int i=0; i<tokens.length; i++) {
+            String c = tokens[i];
+            if(!isOperator(c)) {
+                stack.push(Integer.parseInt(c));
             } else {
-                stack.push(Integer.parseInt(str));
+                int b = stack.pop();
+                int a = stack.pop();
+                int res = calculateRPN(a, b, c);
+                stack.push(res);
             }
         }
 
-        return stack.peek();
+        return stack.pop();
     }
 }
