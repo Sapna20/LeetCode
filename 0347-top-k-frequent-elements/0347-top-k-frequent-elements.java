@@ -7,7 +7,7 @@ class Solution {
         }
 
         PriorityQueue<int[]> pq = new PriorityQueue<>( 
-                                        (int[] x, int[] y) -> x[1] - y[1] 
+                                        (x, y) -> x[1] - y[1] 
                                     );
 
         for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
