@@ -1,38 +1,31 @@
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
-        int n = nums.length;
-        List<Integer>[] freq = new List[n+1];
-        int[] ans = new int[k];
+        Map<Integer, Integer> map = new HashMap<>();
 
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-
-        for(int num : nums) {
-            map.put(num, map.getOrDefault(num, 0)+1);
+        for(int x : nums) {
+            map.put(x, map.getOrDefault(x, 0)+1);
         }
+
+        PriorityQueue<int[]> pq = new PriorityQueue<>( 
+                                        (int[] x, int[] y) -> x[1] - y[1] 
+                                    );
 
         for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            int key = entry.getKey();
-            int value = entry.getValue();
-            if(freq[value] != null) {
-                freq[value].add(key);
-            } else {
-                List<Integer> ls = new ArrayList<Integer>();
-                ls.add(key);
-                freq[value] = ls;
-            }
-        }
-
-        int j=0;
-        for(int i=n; i>=0; i--) {
-            if(freq[i] != null) {
-                for(Integer x : freq[i]) {
-                    ans[j] = x;
-                    j++;
-                    if(j == k) {
-                        return ans;
-                    }
+            if(pq.size() == k) {
+                if(entry.getValue() > pq.peek()[1]) {
+                    pq.poll();
+                } else {
+                    continue;
                 }
             }
+            pq.offer(new int[]{entry.getKey(), entry.getValue()});
+        }
+
+        int[] ans = new int[k];
+
+        for(int i=0; i<k; i++) {
+            int[] e = pq.poll();
+            ans[i] = e[0];
         }
 
         return ans;
