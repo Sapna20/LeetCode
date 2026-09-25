@@ -17,7 +17,6 @@ public class Solution {
         while(fastPtr != null && fastPtr.next != null) {
             slowPtr = slowPtr.next;
             fastPtr = fastPtr.next.next;
-
             if(slowPtr == fastPtr) {
                 return true;
             }
