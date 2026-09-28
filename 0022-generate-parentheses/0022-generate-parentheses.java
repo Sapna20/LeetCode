@@ -1,25 +1,25 @@
 class Solution {
 
-    private List<String> solve(int open, int close, ArrayList<String> ans, String currStr) {
-        if(close == 0) {
-            ans.add(currStr);
-            return ans;
-        }
+    List<String> ans = new ArrayList<>();
 
-        if(open == close) {
-            solve(open-1, close, ans, currStr + '(');
-        } else {
-            if(open > 0) {
-                solve(open-1, close, ans, currStr + '(');
+    private void solve(int remOpen, int remClose, String curr) {
+        if(remOpen == 0 && remClose == 0) {
+            ans.add(curr);
+            return;
+        } 
+
+        if(remOpen == remClose) {
+            solve(remOpen - 1, remClose, curr + '(');
+        } else if(remOpen < remClose) {
+            solve(remOpen, remClose - 1, curr + ')');
+            if(remOpen != 0) {
+                solve(remOpen - 1, remClose, curr + '(');
             }
-            solve(open, close-1, ans, currStr + ')');
         }
-
-        return ans;
-
     }
 
     public List<String> generateParenthesis(int n) {
-        return solve(n, n, new ArrayList<String>(), "");
+        solve(n, n, "");
+        return ans;
     }
 }
