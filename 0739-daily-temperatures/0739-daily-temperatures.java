@@ -1,25 +1,21 @@
-// class Pair {
-//     int temp;
-//     int index;
-
-//     Pair(int temp, int index) {
-//         this.temp = temp;
-//         this.index = index;
-//     }
-// }
-
 class Solution {
     public int[] dailyTemperatures(int[] temperatures) {
+        Stack<Integer> st = new Stack<Integer>();
         int n = temperatures.length;
         int[] ans = new int[n];
-        Stack<Integer> stack = new Stack<Integer>();
 
         for(int i=n-1; i>=0; i--) {
-            while(!stack.isEmpty() && temperatures[stack.peek()] <= temperatures[i]) {
-                stack.pop();
+            while(!st.isEmpty() && temperatures[i] >= temperatures[st.peek()]) {
+                st.pop();
             }
-            ans[i] = stack.isEmpty() ? 0 : stack.peek() - i;
-            stack.push(i);
+            
+            if(st.isEmpty()) {
+                ans[i] = 0;
+            } else {
+                ans[i] = st.peek()-i;
+            }
+
+            st.push(i);
         }
 
         return ans;
