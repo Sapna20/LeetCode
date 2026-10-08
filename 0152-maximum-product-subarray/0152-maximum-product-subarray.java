@@ -14,7 +14,7 @@ class Solution {
 
             if(nums[n-i-1] == 0) {
                 rightMax = 1;
-                maxP = Math.max(nums[i], maxP);
+                maxP = Math.max(nums[n-i-1], maxP);
             } else {
                 rightMax *= nums[n-i-1];
                 maxP = Math.max(rightMax, maxP);
