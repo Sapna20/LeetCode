@@ -1,19 +1,26 @@
 class Solution {
     public int maxProduct(int[] nums) {
+        int maxP = Integer.MIN_VALUE, leftMax = 1, rightMax = 1;
         int n = nums.length;
-        int prefix = 1, suffix = 1;
-        int max = Integer.MIN_VALUE;
 
-        for (int i = 0; i < n; i++) {
-            // reset BEFORE multiplying if previous was 0
-            if (prefix == 0) prefix = 1;
-            if (suffix == 0) suffix = 1;
+        for(int i=0; i<n; i++) {
+            if(nums[i] == 0) {
+                leftMax = 1;
+                maxP = Math.max(nums[i], maxP);
+            } else {
+                leftMax *= nums[i];
+                maxP = Math.max(leftMax, maxP);
+            }
 
-            prefix *= nums[i];
-            suffix *= nums[n - 1 - i];
-
-            max = Math.max(max, Math.max(prefix, suffix));
+            if(nums[n-i-1] == 0) {
+                rightMax = 1;
+                maxP = Math.max(nums[i], maxP);
+            } else {
+                rightMax *= nums[n-i-1];
+                maxP = Math.max(rightMax, maxP);
+            }
         }
-        return max;    
+
+        return maxP;
     }
 }
